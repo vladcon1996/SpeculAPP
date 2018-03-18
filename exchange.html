@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link rel="stylesheet" type="text/css" href="exchangeform.css">
+<link rel="stylesheet" type="text/css" href="portofolio.css">
 
 </head>
 <body>
@@ -17,10 +18,12 @@
 
 <!-- nav -->
 <nav>
-    <ul>
+
+    <!-- echange -->
+    <ul class="myPage">
         <li><a href="#how">How it works</a></li>
         <li><a class="active" href="#exchange">Exchange</a></li>
-        <li><a href"#portofolio">Portofolio</a></li>
+        <li><a href"#portofolio" onclick="showDivs(2)">Portofolio</a></li>
         <li class="dropdown">
             <a class="dropbtn">Currency</a>
             <div class="dropdown-content">
@@ -31,32 +34,143 @@
         </li>
         <li><a href="start.html">Logout</a></li>
     </ul>
+
+    <!-- portofolio -->
+    <ul class="myPage">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#exchange" onclick="showDivs(1)">Exchange</a></li>
+        <li><a class="active" href="#portofolio">Portofolio</a></li>
+        <li class="dropdown">
+            <a class="dropbtn">Currency</a>
+            <div class="dropdown-content">
+                <a href="#">EURO</a>
+                <a href="#">USD</a>
+                <a href="#">GBP</a>
+            </div>
+        </li>
+        <li><a href="start.html">Logout</a></li>
+    </ul>
+
 </nav>
 
+<div>
 
-<div class="row" >
-    <div class="div1">
+    <!-- exchange -->
+    <div class="row myPage" >
+        <div class="side1">
+        </div>
+        <div class="main1 exchange">
+            <form action="#" method="POST">
+                First Currency: <br>
+                <select name="First Currency" size="1" required>
+                    <option value="EURO">EURO</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                </select><br>
+                <input type="number" name="first" required min="1"><br>
+                Second Currency: <br>
+                <select name="Second Currency" size="1" required>
+                    <option value="EURO">EURO</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                </select><br>
+                <input type="text" name="second" readonly><br>
+                <input type="submit" value="Trade">
+            </form>
+        </div>
     </div>
-    <div class="div2 exchange">
-        <form action="#" method="POST">
-            First Currency: <br>
-            <select name="First Currency" size="1">
-                <option value="EURO">EURO</option>
-                <option value="USD">USD</option>
-                <option value="GBP">GBP</option>
-            </select><br>
-            <input type="text" name="first"><br>
-            Second Currency: <br>
-            <select name="First Currency" size="1">
-                <option value="EURO">EURO</option>
-                <option value="USD">USD</option>
-                <option value="GBP">GBP</option>
-            </select><br>
-            <input type="text" name="second"><br>
-            <input type="submit" value="Trade">
-        </form>
+
+    <!-- portofolio -->
+    <div class="row myPage">
+
+        <div class="side2">
+
+            <h2>Your Money</h2><br>
+            <table class="table1">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th scope="col" abbr="Currency">Currency</th>
+                            <th scope="col" abbr="Amount">Amount</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td> RON </td>
+                            <td> 1500 </td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td> EURO </td>
+                            <td> 102</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td> RON</td>
+                            <td> 950 </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        
+        <div class="main2">
+            <h2>Echange History</h2><br>
+            <table class="table1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col" abbr="FAmound"> Amount sold </th>
+                        <th scope="col" abbr="FCurrency"> Sold Currency </th>
+                        <th scope="col" abbr="SAmound"> Amount bought </th>
+                        <th scope="col" abbr="SCurrency"> Bought Currency </th>
+                        <th scope="col" abbr="Date"> Transaction Date </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <td> 200  </td>
+                        <td> EURO </td>
+                        <td> 240 </td>
+                        <td> USD </td>
+                        <td> 10-12-2018 </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td> 180 </td>
+                        <td> GBP </td>
+                        <td> 1020 </td>
+                        <td> RON </td>
+                        <td> 12-12-2018 </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td> USD </td>
+                        <td> 210 </td>
+                        <td> 165  </td>
+                        <td> EURO </td>
+                        <td> 11-12-2018 </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td> 500 </td>
+                        <td> RON </td>
+                        <td> 100 </td>
+                        <td> EURO </td>
+                        <td> 13-12-2018 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>
+
+
+
 
 <!-- footer -->
 <div class="footer">
@@ -72,6 +186,8 @@
       </h2>
   </div>
 </div>
+
+<script src="slider.js"></script>
 
 </body>
 </html>
