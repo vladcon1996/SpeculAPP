@@ -1,0 +1,35 @@
+.exchange input[type=text], .exchange select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.exchange input[type=submit] {
+    width: 100%;
+    background-color: #8c6954;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.exchange input:focus , .exchange select:focus {
+    box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+}
+
+.exchange form {
+    color:#f2eeb3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    padding: 18px;
+    font-weight: bold;
+}
