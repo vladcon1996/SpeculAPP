@@ -1,7 +1,4 @@
-var pageNr = 2;
-showDivs(1);
-
-function showDivs(n) {
+function showDivs( pageNr , n) {
     var i;
     var x = document.getElementsByClassName("myPage");
     if (n > pageNr) {
@@ -13,5 +10,5 @@ function showDivs(n) {
         x[i].style.display = "none";  
     }
     for ( i = n; i <= x.length ; i = i + pageNr )
-    x[i-1].style.display = "flex";  
+        x[i-1].style.display = "flex";  
 }

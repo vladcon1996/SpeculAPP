@@ -6,9 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="exchangeform.css">
+<link rel="stylesheet" type="text/css" href="portofolio.css">
 
 </head>
-<body>
+<body onload="showDivs(3,1) , makeChart()">
 
 <!-- header -->
 <div class="header">
@@ -16,10 +18,12 @@
 
 <!-- nav -->
 <nav>
+    
+    <!-- how it works -->
     <ul class="myPage">
         <li><a class="active">How it works</a></li>
         <li class="dropdown">
-            <a class="dropbtn">Currency</a>
+            <a class="dropbtn" onclick="showDivs(3,2)">Currency</a>
             <div class="dropdown-content">
                 <a href="#">EURO</a>
                 <a href="#">USD</a>
@@ -27,12 +31,29 @@
             </div>
         </li>
         <li><a href="exchange.html">Login</a></li>
-        <li><a href="#register" onclick="showDivs(2)">Register</a></li>
+        <li><a href="#register" onclick="showDivs(3,3)">Register</a></li>
     </ul>
+
+    <!-- Currency -->
     <ul class="myPage">
-        <li><a href="#how" onclick="showDivs(1)">How it works</a></li>
+        <li><a class="#how" onclick="showDivs(3,1)">How it works</a></li>
         <li class="dropdown">
-            <a class="dropbtn">Currency</a>
+            <a class="dropbtn active">Currency</a>
+            <div class="dropdown-content">
+                <a href="#">EURO</a>
+                <a href="#">USD</a>
+                <a href="#">GBP</a>
+            </div>
+        </li>
+        <li><a href="exchange.html">Login</a></li>
+        <li><a href="#register" onclick="showDivs(3,3)">Register</a></li>
+    </ul>
+
+    <!-- Register -->
+    <ul class="myPage">
+        <li><a href="#how" onclick="showDivs(3,1)">How it works</a></li>
+        <li class="dropdown">
+            <a class="dropbtn" onclick="showDivs(3,2)">Currency</a>
             <div class="dropdown-content">
                 <a href="#">EURO</a>
                 <a href="#">USD</a>
@@ -45,10 +66,58 @@
 </nav>
 
 <div>
+
+    <!-- how it works -->
     <div class="full myPage">
         <img src="resurse\\43.png">
     </div>
 
+    <div class="row myPage">
+        
+        <div class="side2">
+            <table class="table1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col" abbr="Current">EURO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" abbr="Into">Into</th>
+                        <td>
+                        <select name="OtherCurrencies" size="1">
+                            <option value="RON">RON</option>
+                            <option value="EURO">EURO</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" abbr="Amount">Amount</th>
+                        <td> 4.45 </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" abbr="Interval">Random Interval (RON) </th>
+                        <td> 4.1 -> 6.6 </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" abbr="Time">Change Time (s) </th>
+                        <td> 200 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="main2">
+            <div id="chartContainer"></div><br>
+            <button id="addDataPoint" onclick="addPoint()">Add Data Point</button>  
+            <button id="updateDataPoint" onclick="updatePoint()">Update Data Point</button>  
+        </div>
+    </div>
+
+    <!-- register -->
     <div class="full myPage">
 
     </div>
@@ -69,7 +138,9 @@
   </div>
 </div>
 
-<script src="slider.js"></script>
+<script type="text/javascript" src="slider.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="chart.js"></script>
 
 </body>
 </html>

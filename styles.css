@@ -24,10 +24,6 @@ img {
     height: auto;
 }
 
-nav .user {
-    float: right;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -93,6 +89,17 @@ li .dropdown {
     flex-direction: column;
 }
 
+button {
+    background-color: #260126;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+} 
+
 .row {  
     display: flex;
     flex-wrap: wrap;
@@ -146,7 +153,8 @@ li .dropdown {
     background-color: #59323c;
     color: #f2eeb3;
     border-radius: 5px;
-    width: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer {
@@ -164,6 +172,11 @@ li .dropdown {
     border: 3px solid black;
     background-color: #f2eeb3;
     color: black
+}
+
+#chartContainer {
+    height: 400px;
+    width: auto;
 }
 
 @media screen and (max-width: 767px) {

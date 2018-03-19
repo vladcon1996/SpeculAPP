@@ -8,7 +8,7 @@ table .table1 {
     border-collapse:separate;
 }
 
-.table1 thead th , .table1 tfoot th {
+.table1 th[scope="col"] {
     padding:15px;
     color:#fff;
     border:1px solid #59323c;
@@ -18,13 +18,23 @@ table .table1 {
     border-top-right-radius:5px;
 }
 
+.table1 th[scope="row"] {
+    padding:15px;
+    color:#fff;
+    border:1px solid #59323c;
+    border-bottom:3px solid #f2eeb3;
+    background-color:#8c6954;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+
 .table1 thead th:empty {
     background:transparent;
     border:none;
 }
 
-.table1 tbody td , .table1 tfoot td {
-    padding:10px;
+.table1 tbody td , .table1 tfoot td , .table1 select {
+    padding: 10px;
     text-align:center;
     background-color:#def3ca;
     border: 2px solid #e7efe0;
