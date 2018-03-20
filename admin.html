@@ -10,9 +10,14 @@
 <link rel="stylesheet" type="text/css" href="portofolio.css">
 
 </head>
-<body onload="showDivs(2,1) , makeChart()">
+<body onload="showDivs(2,1) , makeChart([{ y : 2 } , { y : 5 } , { y : 1 }])">
 
-<div class="fixed">
+<div id="log">
+    Signed in as, <br>
+    Strugari Stefan
+</div>    
+
+<div id="adm">
     Administrator
 </div>
 
@@ -58,30 +63,61 @@
     <!-- add currency -->
     <div class="full exchange myPage">
         <form name="newCurrency" action="#" onsubmit="return isInterval()" method="POST">
-            
-            <h3>Currency name:</h3>
-            <input type="text" name="new" required pattern="[A-Z]+"><br>
-
-            <h3>Currency flow interval:</h2>
-            <p>Inferior limit:</p>
-            <input type="number" name="intervalbg" required min="0"><br>
-            <p>Superior limit:</p>
-            <input type="number" name="intervalend" required min="0"><br>
-
-            <h3>Exchange validity time (seconds):</h3>
-            <input type="number" name="exchange validity time" required min="1"><br>
-
-            <input type="submit" value="Add Currency">
-        </form> <br>
+            <div class="row2">
+                <div class="col-25">
+                    <label for="new">Currency name:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="new" name="currencyName" required pattern="[A-Z]+">
+                </div>
+            </div>
+            <div class="row2">
+                <div class="col-25">
+                    <label for="interval">Currency flow interval</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="interval" name="intervalbg" required min="0">
+                </div>
+                <div class="col-25"></div>
+                <div class="col-75">
+                    <input type="number" name="intervalend" required min="0">
+                </div>
+            </div>
+            <div class="row2">
+                <div class="col-25">
+                    <label for="valTime"> Echange validity time (seconds) </label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="valTime" name="exchange validity time" required min="1">
+                </div>
+            </div>
+            <div class="row2">
+                <input type="submit" value="Add Currency">
+            </div>
+        </form>
         
         <form name="setLimits" action="#" method="POST">
-            <h3>Losing limit (RON): </h3>
-            <input type="number" name="lose" required min="100" max="999"><br>
-
-            <h3>Winning limit (RON):</h3>
-            <input type="number" name="win" required min="2000"><br>
-
-            <input type="submit" value="Set win/lose limits">
+            <div class="row2">
+                <div class="col-25">
+                    <label for="inf">
+                        Losing limit (RON): 
+                    </label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="inf" name="lose" required min="100" max="999">
+                </div>
+            </div>
+            <div class="row2">
+                <div class="col-25">
+                    <label for="sup"> Winning limit (RON): </label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="sup" name="win" required min="2000">
+                </div>
+            </div>
+            <div class="row2">
+                <input type="submit" value="Set win/lose limits">
+            </div>
         </form>
     </div>
 
@@ -93,14 +129,14 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th scope="col" abbr="Current">EURO</th>
+                        <th scope="col" id="Current">EURO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" abbr="Into">Into</th>
+                        <th scope="row">Into</th>
                         <td>
-                        <select name="OtherCurrencies" size="1">
+                        <select name="OtherCurrencies" size="1" onchange="makeChart([ { y : 2} , { y : 5 }])">
                             <option value="RON">RON</option>
                             <option value="EURO">EURO</option>
                             <option value="USD">USD</option>
@@ -109,16 +145,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Amount">Amount</th>
-                        <td> 4.45 </td>
+                        <th scope="row">Amount</th>
+                        <td id="currentValue"> 4.45 </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Interval">Random Interval (RON) </th>
-                        <td> 4.1 -> 6.6 </td>
+                        <th scope="row">Random Interval (RON) </th>
+                        <td id="inter"> 4.1 - 6.6 </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Time">Change Time (s) </th>
-                        <td> 200 </td>
+                        <th scope="row">Change Time (s) </th>
+                        <td id="time"> 3 </td>
                     </tr>
                 </tbody>
             </table>

@@ -10,7 +10,12 @@
 <link rel="stylesheet" type="text/css" href="portofolio.css">
 
 </head>
-<body onload="showDivs(4,1) , makeChart()">
+<body onload="showDivs(4,1) , makeChart([{ y : 2 } , { y : 5 } , { y : 1 }])">
+
+<div id="log">
+    Signed in as, <br>
+    Strugari Stefan
+</div>    
 
 <!-- header -->
 <div class="header">
@@ -93,21 +98,41 @@
         </div>
         <div class="main1 exchange">
             <form action="#" method="POST">
-                First Currency: <br>
-                <select name="First Currency" size="1" required>
-                    <option value="EURO">EURO</option>
-                    <option value="USD">USD</option>
-                    <option value="GBP">GBP</option>
-                </select><br>
-                <input type="number" name="first" required min="1"><br>
-                Second Currency: <br>
-                <select name="Second Currency" size="1" required>
-                    <option value="EURO">EURO</option>
-                    <option value="USD">USD</option>
-                    <option value="GBP">GBP</option>
-                </select><br>
-                <input type="text" name="second" readonly><br>
-                <input type="submit" value="Trade">
+                <div class="row2">
+                    <div class="col-25">
+                        <label for="first">First Currency:</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="first" name="First Currency" size="1" required>
+                            <option value="EURO">EURO</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                    <div class="col-25"></div>
+                    <div class="col-75">
+                        <input type="number" name="first" required min="1">
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="col-25">
+                        <label for="second"> Second Currency: </label>
+                    </div>
+                    <div class="col-75">
+                        <select id="second" name="Second Currency" size="1" required>
+                            <option value="EURO">EURO</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                    <div class="col-25"></div>
+                    <div class="col-75">
+                        <input type="text" name="second" readonly>
+                    </div>
+                </div>
+                <div class="row2">
+                    <input type="submit" value="Trade">
+                </div>
             </form>
         </div>
     </div>
@@ -122,8 +147,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col" abbr="Currency">Currency</th>
-                            <th scope="col" abbr="Amount">Amount</th>
+                            <th scope="col" >Currency</th>
+                            <th scope="col" >Amount</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -160,11 +185,11 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th scope="col" abbr="FAmound"> Amount sold </th>
-                        <th scope="col" abbr="FCurrency"> Sold Currency </th>
-                        <th scope="col" abbr="SAmound"> Amount bought </th>
-                        <th scope="col" abbr="SCurrency"> Bought Currency </th>
-                        <th scope="col" abbr="Date"> Transaction Date </th>
+                        <th scope="col" > Amount sold </th>
+                        <th scope="col" > Sold Currency </th>
+                        <th scope="col" > Amount bought </th>
+                        <th scope="col" > Bought Currency </th>
+                        <th scope="col" > Transaction Date </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -213,14 +238,14 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th scope="col" abbr="Current">EURO</th>
+                        <th scope="col" id="Current">EURO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" abbr="Into">Into</th>
+                        <th scope="row" >Into</th>
                         <td>
-                        <select name="OtherCurrencies" size="1">
+                        <select name="OtherCurrencies" size="1" onchange="makeChart([ { y : 2} , { y : 5 }])">
                             <option value="RON">RON</option>
                             <option value="EURO">EURO</option>
                             <option value="USD">USD</option>
@@ -229,16 +254,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Amount">Amount</th>
-                        <td> 4.45 </td>
+                        <th scope="row" >Amount</th>
+                        <td id="currentValue"> 4.45 </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Interval">Random Interval (RON) </th>
-                        <td> 4.1 -> 6.6 </td>
+                        <th scope="row" >Random Interval (RON) </th>
+                        <td id="inter"> 12.1 - 18.6 </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Time">Change Time (s) </th>
-                        <td> 200 </td>
+                        <th scope="row">Change Time (s) </th>
+                        <td id="time"> 5 </td>
                     </tr>
                 </tbody>
             </table>

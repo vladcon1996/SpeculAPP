@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="portofolio.css">
 
 </head>
-<body onload="showDivs(3,1) , makeChart()">
+<body onload="showDivs(4,1) , makeChart([{ y : 2 } , { y : 5 } , { y : 1 }])">
 
 <!-- header -->
 <div class="header">
@@ -23,20 +23,20 @@
     <ul class="myPage">
         <li><a class="active">How it works</a></li>
         <li class="dropdown">
-            <a class="dropbtn" onclick="showDivs(3,2)">Currency</a>
+            <a class="dropbtn" onclick="showDivs(4,2)">Currency</a>
             <div class="dropdown-content">
                 <a href="#">EURO</a>
                 <a href="#">USD</a>
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="exchange.html">Login</a></li>
-        <li><a href="#register" onclick="showDivs(3,3)">Register</a></li>
+        <li><a href="#login" onclick="showDivs(4,3)">Login</a></li>
+        <li><a href="#register" onclick="showDivs(4,4)">Register</a></li>
     </ul>
 
     <!-- Currency -->
     <ul class="myPage">
-        <li><a class="#how" onclick="showDivs(3,1)">How it works</a></li>
+        <li><a class="#login" onclick="showDivs(4,1)">How it works</a></li>
         <li class="dropdown">
             <a class="dropbtn active">Currency</a>
             <div class="dropdown-content">
@@ -45,23 +45,38 @@
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="exchange.html">Login</a></li>
-        <li><a href="#register" onclick="showDivs(3,3)">Register</a></li>
+        <li><a href="#login" onclick="showDivs(4,3)">Login</a></li>
+        <li><a href="#register" onclick="showDivs(4,4)">Register</a></li>
     </ul>
 
-    <!-- Register -->
+    <!-- Login -->
     <ul class="myPage">
-        <li><a href="#how" onclick="showDivs(3,1)">How it works</a></li>
+        <li><a href="#how" onclick="showDivs(4,1)">How it works</a></li>
         <li class="dropdown">
-            <a class="dropbtn" onclick="showDivs(3,2)">Currency</a>
+            <a class="dropbtn" onclick="showDivs(4,2)">Currency</a>
             <div class="dropdown-content">
                 <a href="#">EURO</a>
                 <a href="#">USD</a>
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="exchange.html">Login</a></li>
-        <li><a class="active">Register</a></li>
+        <li><a class="active" href="#login">Login</a></li>
+        <li><a href="#register" onclick="showDivs(4,4)">Register</a></li>
+    </ul>
+
+    <!-- Register -->
+    <ul class="myPage">
+        <li><a href="#how" onclick="showDivs(4,1)">How it works</a></li>
+        <li class="dropdown">
+            <a class="dropbtn" onclick="showDivs(4,2)">Currency</a>
+            <div class="dropdown-content">
+                <a href="#">EURO</a>
+                <a href="#">USD</a>
+                <a href="#">GBP</a>
+            </div>
+        </li>
+        <li><a href="#login" onclick="showDivs(4,3)">Login</a></li>
+        <li><a href="#register" class="active">Register</a></li>
     </ul>
 </nav>
 
@@ -69,7 +84,7 @@
 
     <!-- how it works -->
     <div class="full myPage">
-        <img src="resurse\\43.png">
+        <img src="resurse\\43.png" alt="reguli">
     </div>
 
     <div class="row myPage">
@@ -79,14 +94,14 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th scope="col" abbr="Current">EURO</th>
+                        <th scope="col" id="Current">EURO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" abbr="Into">Into</th>
+                        <th scope="row">Into</th>
                         <td>
-                        <select name="OtherCurrencies" size="1">
+                        <select name="OtherCurrencies" size="1" onchange="makeChart([ { y : 2} , { y : 5 }])">
                             <option value="RON">RON</option>
                             <option value="EURO">EURO</option>
                             <option value="USD">USD</option>
@@ -95,16 +110,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Amount">Amount</th>
-                        <td> 4.45 </td>
+                        <th scope="row">Amount</th>
+                        <td id="currentValue"> 4.45 </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Interval">Random Interval (RON) </th>
-                        <td> 4.1 -> 6.6 </td>
+                        <th scope="row">Random Interval (RON) </th>
+                        <td id="inter"> 4.1 - 6.6 </td>
                     </tr>
                     <tr>
-                        <th scope="row" abbr="Time">Change Time (s) </th>
-                        <td> 200 </td>
+                        <th scope="row">Change Time (s) </th>
+                        <td id="time"> 2 </td>
                     </tr>
                 </tbody>
             </table>
@@ -117,8 +132,13 @@
         </div>
     </div>
 
+    <!-- login -->
+    <div class="myPage">
+
+    </div>
+
     <!-- register -->
-    <div class="full myPage">
+    <div class="myPage">
 
     </div>
 </div>

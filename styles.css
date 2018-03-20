@@ -8,6 +8,31 @@ body {
     margin: 0;
 }
 
+#adm {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    text-align: center;
+    background-color: #f2eeb3;
+    color: black;
+    z-index: 1;
+}
+
+#log {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    padding: 14px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    background-color: #f2eeb3;
+    color: black;
+    z-index: 1;
+}
+
 
 .header {
     padding: 60px;
@@ -149,7 +174,6 @@ button {
 .full {
     margin: 45px 60px;
     padding: 30px 42px;
-    border: 2px solid black;
     background-color: #59323c;
     color: #f2eeb3;
     border-radius: 5px;
@@ -162,16 +186,6 @@ button {
     flex-wrap: wrap;
     text-align: center;
     background: #ddd;
-}
-
-.fixed {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 200px;
-    border: 3px solid black;
-    background-color: #f2eeb3;
-    color: black
 }
 
 #chartContainer {
