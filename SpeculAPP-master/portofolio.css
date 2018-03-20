@@ -1,0 +1,47 @@
+table .table1 {
+
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-style: normal;
+    border-collapse:separate;
+}
+
+.table1 th[scope="col"] {
+    padding:15px;
+    color:#fff;
+    border:1px solid #59323c;
+    border-bottom:3px solid #f2eeb3;
+    background-color:#8c6954;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+.table1 th[scope="row"] {
+    padding:15px;
+    color:#fff;
+    border:1px solid #59323c;
+    border-bottom:3px solid #f2eeb3;
+    background-color:#8c6954;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+
+.table1 thead th:empty {
+    background:transparent;
+    border:none;
+}
+
+.table1 tbody td , .table1 tfoot td , .table1 select {
+    padding: 10px;
+    text-align:center;
+    background-color:#def3ca;
+    border: 2px solid #e7efe0;
+    border-radius:2px;
+    color:#666;
+    width: 150px;
+    height: 80px;
+}
+
+
