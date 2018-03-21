@@ -1,4 +1,4 @@
-.exchange input[type=text] , .exchange input[type=number] , .exchange select {
+.exchange input[type=text] , .exchange input[type=number] , .exchange input[type=password]  ,.exchange select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
