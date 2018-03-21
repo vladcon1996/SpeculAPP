@@ -6,3 +6,11 @@ function isInterval() {
         return false;
     }
 }
+
+function isPassword() {
+    if( document.forms["register"]["psw"].value !== document.forms["register"]["psw-repeat"].value )
+    {
+        alert("Your passwords do not match*");
+        return false;
+    }
+}

@@ -13,7 +13,7 @@ table .table1 {
     color:#fff;
     border:1px solid #59323c;
     border-bottom:3px solid #f2eeb3;
-    background-color:#8c6954;
+    background-color:#8A0651;
     border-top-left-radius:5px;
     border-top-right-radius:5px;
 }
@@ -23,7 +23,7 @@ table .table1 {
     color:#fff;
     border:1px solid #59323c;
     border-bottom:3px solid #f2eeb3;
-    background-color:#8c6954;
+    background-color:#8A0651;
     border-top-left-radius:5px;
     border-bottom-left-radius:5px;
 }
@@ -36,7 +36,7 @@ table .table1 {
 .table1 tbody td , .table1 tfoot td , .table1 select {
     padding: 10px;
     text-align:center;
-    background-color:#def3ca;
+    background-color:#ECEAE0;
     border: 2px solid #e7efe0;
     border-radius:2px;
     color:#666;

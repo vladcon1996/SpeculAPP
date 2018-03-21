@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title> Users </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="styles.css">
-<link rel="stylesheet" type="text/css" href="exchangeform.css">
-<link rel="stylesheet" type="text/css" href="portofolio.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/exchangeform.css">
+<link rel="stylesheet" type="text/css" href="css/portofolio.css">
 
 </head>
 <body onload="showDivs(4,1) , makeChart([{ y : 2 } , { y : 5 } , { y : 1 }])">
@@ -28,7 +30,7 @@
     <ul class="myPage">
         <li><a href="#how" onclick="showDivs(4,4)">How it works</a></li>
         <li><a class="active" href="#exchange">Exchange</a></li>
-        <li><a href"#portofolio" onclick="showDivs(4,2)">Portofolio</a></li>
+        <li><a href="#portofolio" onclick="showDivs(4,2)">Portofolio</a></li>
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,3)">Currency</a>
             <div class="dropdown-content">
@@ -37,7 +39,7 @@
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="start.html">Logout</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
 
     <!-- portofolio -->
@@ -53,7 +55,7 @@
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="start.html">Logout</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
 
     <!-- currencies -->
@@ -69,7 +71,7 @@
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="start.html">Logout</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
     
     <!-- How it works -->
@@ -85,7 +87,7 @@
                 <a href="#">GBP</a>
         </div>
         </li>
-        <li><a href="start.html">Logout</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
 
 </nav>
@@ -100,13 +102,14 @@
             <form action="#" method="POST">
                 <div class="row2">
                     <div class="col-25">
-                        <label for="first">First Currency:</label>
+                        <label for="first"> You have </label>
                     </div>
                     <div class="col-75">
                         <select id="first" name="First Currency" size="1" required>
-                            <option value="EURO">EURO</option>
-                            <option value="USD">USD</option>
-                            <option value="GBP">GBP</option>
+                            <option value="" disabled selected> Select curency </option>
+                            <option>EURO</option>
+                            <option>USD</option>
+                            <option>GBP</option>
                         </select>
                     </div>
                     <div class="col-25"></div>
@@ -116,13 +119,14 @@
                 </div>
                 <div class="row2">
                     <div class="col-25">
-                        <label for="second"> Second Currency: </label>
+                        <label for="second"> You get </label>
                     </div>
                     <div class="col-75">
                         <select id="second" name="Second Currency" size="1" required>
-                            <option value="EURO">EURO</option>
-                            <option value="USD">USD</option>
-                            <option value="GBP">GBP</option>
+                            <option value="" disabled selected> Select curency </option>
+                            <option>EURO</option>
+                            <option>USD</option>
+                            <option>GBP</option>
                         </select>
                     </div>
                     <div class="col-25"></div>
@@ -142,7 +146,7 @@
 
         <div class="side2">
 
-            <h2>Your Money</h2><br>
+            <p>Your Money</p><br>
             <table class="table1">
                     <thead>
                         <tr>
@@ -151,6 +155,18 @@
                             <th scope="col" >Amount</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td> EURO </td>
+                            <td> 102</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td> RON</td>
+                            <td> 950 </td>
+                        </tr>
+                    </tbody>
                     <tfoot>
                         <tr>
                             <th scope="row">Total</th>
@@ -164,23 +180,11 @@
                             <td> 1500 </td>
                         </tr>
                     </tfoot>
-                    <tbody>
-                        <tr>
-                            <th></th>
-                            <td> EURO </td>
-                            <td> 102</td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td> RON</td>
-                            <td> 950 </td>
-                        </tr>
-                    </tbody>
                 </table>
         </div>
         
         <div class="main2">
-            <h2>Echange History</h2><br>
+            <p>Echange History</p><br>
             <table class="table1">
                 <thead>
                     <tr>
@@ -278,7 +282,8 @@
 
     <!-- how it works -->
     <div class="full myPage">
-        <img src="resurse\\43.png">
+        <h2>how does it work</h2>
+        <p>Sa se creeze un joc Web simuland operatiuni de specula valutara. Administratorul va putea stabili valutele (EUR, USD, GBP etc.), marjele de randomizare a cursului (de exemplu, pentru o moneda intre valori fixe precum 4.10 si 6.50 RON), durata de valabilitate a cursului in secunde, suma de inceput in RON (e.g., 1000 RON), pragul de castig (e.g., peste 2000 RON) si pragul de pierdere (de pilda, sub 100 RON). Jucatorul va avea la dispozitie doua seturi de comenzi: afla curs pentru valuta V (daca precedentul curs generat e mai vechi decat durata de valabilitate setata va fi generat un nou curs, altfel va fi luat in considerare cel vechi) si schimba X unitati din valuta V in W (dupa fiecare operatiune de schimb valutar, se calculeaza valoarea totala a portofoliului in RON; daca aceasta valoare e mai mica decat pragul de pierdere, jucatorul a pierdut jocul, iar daca e mai mare decat cel de castig, atunci a castigat jocul, altfel poate continua cu alte operatiuni). Clasamentul celor mai "bogati" jucatori va fi generat dinamic si ca flux de stiri RSS sau drept raport disponibil in formatele HTML, JSON si PDF. Bonus: generarea de vizualizari edificatoare pentru un grup de persoane, in functie de valuta si sumele vehiculate.</p>
     </div>
 
 </div>
@@ -289,22 +294,28 @@
 <!-- footer -->
 <div class="footer">
   <div class="side">
-      <h2>Contacts:</h2><br>
-      <h3>Email: </h3>
-      <p> mihai.strugari@yahoo.com</p>
-      <p> vlad.condurache@gmail.com</p>
+    <ul>
+        <li>Contact</li>
+        <li>Email</li>
+        <li>mihai.strugari@yahoo.com</li>
+        <li>vlad.condurache@gmail.com</li>
+    </ul>
   </div>
-  <div class="main">
-      <h2>
-          About:
-      </h2>
+  <div class="side main">
+    <ul>
+        <li>Product</li>
+        <li>About</li>
+        <li>Logistics</li>
+        <li>Pricing</li>
+        <li>Assets tracking</li>
+    </ul>
   </div>
 </div>
 
 
-<script type="text/javascript" src="slider.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript" src="chart.js"></script>
+<script src="js/slider.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="js/chart.js"></script>
 
 
 </body>

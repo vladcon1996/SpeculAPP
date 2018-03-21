@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title> Admins </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="styles.css">
-<link rel="stylesheet" type="text/css" href="exchangeform.css">
-<link rel="stylesheet" type="text/css" href="portofolio.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/exchangeform.css">
+<link rel="stylesheet" type="text/css" href="css/portofolio.css">
 
 </head>
 <body onload="showDivs(2,1) , makeChart([{ y : 2 } , { y : 5 } , { y : 1 }])">
@@ -39,7 +41,7 @@
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="start.html">Logout</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
 
     <!-- currencies -->
@@ -53,7 +55,7 @@
                 <a href="#">GBP</a>
             </div>
         </li>
-        <li><a href="start.html">Logout</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
 
 </nav>
@@ -73,7 +75,7 @@
             </div>
             <div class="row2">
                 <div class="col-25">
-                    <label for="interval">Currency flow interval</label>
+                    <label for="interval"> Interval: </label>
                 </div>
                 <div class="col-75">
                     <input type="number" id="interval" name="intervalbg" required min="0">
@@ -176,22 +178,28 @@
 <!-- footer -->
 <div class="footer">
   <div class="side">
-      <h2>Contacts:</h2><br>
-      <h3>Email: </h3>
-      <p> mihai.strugari@yahoo.com</p>
-      <p> vlad.condurache@gmail.com</p>
+    <ul>
+        <li>Contact</li>
+        <li>Email</li>
+        <li>mihai.strugari@yahoo.com</li>
+        <li>vlad.condurache@gmail.com</li>
+    </ul>
   </div>
-  <div class="main">
-      <h2>
-          About:
-      </h2>
+  <div class="side main">
+    <ul>
+        <li>Product</li>
+        <li>About</li>
+        <li>Logistics</li>
+        <li>Pricing</li>
+        <li>Assets tracking</li>
+    </ul>
   </div>
 </div>
 
-<script type="text/javascript" src="slider.js"></script>
-<script type="text/javascript" src="formvalidation.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript" src="chart.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/formvalidation.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="js/chart.js"></script>
 
 </body>
 </html>

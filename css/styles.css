@@ -1,0 +1,304 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+}
+
+#adm {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    text-align: center;
+    background-color: #ECEAE0;
+    color: black;
+    z-index: 1;
+}
+
+#log {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    padding: 14px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #ECEAE0;
+    color: black;
+    z-index: 1;
+}
+
+
+.header {
+    margin: 25px;
+    padding: 60px;
+    color: black;
+    text-align: center;
+    background-image: url('../resurse/logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    background-color: #1B172B;
+}
+
+li {
+    float: left;
+    cursor: pointer;
+}
+
+li a,
+.dropbtn {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 34px 48px;
+    text-decoration: none;
+    transition: all ease-in-out .3s;
+}
+
+li a.active {
+    background-color: #7753EB;
+}
+
+li a:hover:not(.active),
+.dropdown:hover .dropbtn {
+    background-color: #5C45C3;
+    color: white;
+    transform: scale(1, 1);
+    transition-duration: 0.5s;
+}
+
+li .dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 172px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: #260126;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side1 {
+    flex: 40%;
+    width: 100%;
+    background-image: url('../resurse/currency-exchange.jpg');
+    background-size: cover;
+    height: 500px;
+}
+
+.main1 {
+    flex: 60%;
+    background-color: white;
+    height: 500px;
+}
+
+.side {
+    flex: 40%;
+    padding: 20px;
+}
+
+.side ul {
+    padding-left: 110px;
+    clear: both;
+    display: block;
+    background: none;
+    text-decoration: none;
+    color: white;
+}
+
+.side ul li {
+    clear: both;
+    display: block;
+}
+
+.side ul li:first-child {
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+    padding-bottom: 20px;
+}
+
+.side ul li:nth-child(2) {
+    font-weight: 300;
+    color: lightgray;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .7em;
+    padding-bottom: 10px;
+}
+
+.side ul li:nth-child(3),
+.side ul li:last-child {
+    font-weight: 400;
+    font-size: 1em;
+    font-style: italic;
+    padding: 5px 0;
+    border-bottom: 1px solid transparent;
+}
+
+.side ul li:nth-child(3):hover,
+.side ul li:last-child:hover {
+    border-bottom: 1px solid #4264FB;
+}
+
+
+.main {
+    flex: 55%;
+    padding: 20px;
+}
+
+.main ul li:nth-child(4) {
+    font-weight: 400;
+    font-size: 1em;
+    font-style: italic;
+    padding: 5px 0;
+    border-bottom: 1px solid transparent;
+}
+
+.main ul li:nth-child(4):hover {
+    border-bottom: 1px solid #4264FB;
+}
+
+.side2 {
+    flex: 33%;
+    background-color: white;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.main2 {
+    flex: 66%;
+    background-color: white;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.full {
+    margin: 45px 60px;
+    padding: 30px 42px;
+    background-color: white;
+    color: #21354B;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.full h2 , .side2 h2 , .main2 h2 {
+    max-width: 320px;
+    font-weight: 900;
+    font-size: 2.5em;
+    text-transform: capitalize;
+    background-color: #5946C3;
+    padding: 30px 50px;
+    border-radius: 30px;
+    color: white;
+}
+
+.full p , .side2 p , .main2 p {
+    text-indent: 50px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 1.2em;
+    line-height: 30px;
+    text-align: justify;
+    color: #22364B;
+}
+
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background: #5A3FC0;
+}
+
+#chartContainer {
+    height: 400px;
+    width: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .row,
+    .footer,
+    ul {
+        flex-direction: column;
+    }
+    li a {
+        justify-content: center;
+        padding: 34px 0;
+    }
+    .dropdown:hover .dropdown-content {
+        width: 100%;
+    }
+    .side ul {
+        padding-left: 0;
+    }
+    .side ul li {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    .full h2 {
+        max-width: none;
+        text-align: center;
+        border-radius: 0;
+    }
+}

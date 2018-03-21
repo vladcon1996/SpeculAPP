@@ -12,3 +12,15 @@ function showDivs( pageNr , n) {
     for ( i = n; i <= x.length ; i = i + pageNr )
         x[i-1].style.display = "flex";  
 }
+
+/*function randomPage( pageArray ) {
+    var inter = pageArray.length,
+    r = Math.random(),
+    i = 0,
+    index = 0;
+    while( i < r ) {
+        i = i + 1/inter;
+        index++;
+    }
+    return pageArray[index-1];
+}*/
