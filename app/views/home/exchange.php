@@ -191,16 +191,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th></th>
-                            <td> EURO </td>
-                            <td> 102</td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td> RON</td>
-                            <td> 950 </td>
-                        </tr>
+                        <?php
+                        if( sizeof($data['wallet']) ) {
+                            foreach( $data['wallet'] as $wallet ) {
+                                echo '<tr><th></th>';
+                                echo '<td>' . $wallet->currency . '</td>';
+                                echo '<td>' . $wallet->amount . '</td></tr>';
+                            }
+                        }
+                        ?> 
                     </tbody>
                     <tfoot>
                         <tr>
@@ -232,38 +231,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th></th>
-                        <td> 200  </td>
-                        <td> EURO </td>
-                        <td> 240 </td>
-                        <td> USD </td>
-                        <td> 10-12-2018 </td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td> 180 </td>
-                        <td> GBP </td>
-                        <td> 1020 </td>
-                        <td> RON </td>
-                        <td> 12-12-2018 </td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td> USD </td>
-                        <td> 210 </td>
-                        <td> 165  </td>
-                        <td> EURO </td>
-                        <td> 11-12-2018 </td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td> 500 </td>
-                        <td> RON </td>
-                        <td> 100 </td>
-                        <td> EURO </td>
-                        <td> 13-12-2018 </td>
-                    </tr>
+                    <?php
+                        if( sizeof($data['transactions']) ) {
+                            foreach( $data['transactions'] as $transaction ) {
+                                echo '<tr><th></th>';
+                                echo '<td>' . $transaction->soldamount . '</td>';
+                                echo '<td>' . $transaction->soldcurrency . '</td>';
+                                echo '<td>' . $transaction->boughtamount . '</td>';
+                                echo '<td>' . $transaction->boughtcurrency . '</td>';
+                                echo '<td>' . $transaction->created_at . '</td></tr>';
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
