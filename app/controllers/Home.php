@@ -79,20 +79,8 @@ class Home extends Controller {
                         if( $verif[0]->is_admin === 1 ) {
                             $this->view('home/admin',$arr);   
                         } else {
-                            $arr['transactions'] = Transaction::where('username','=',$_SESSION['username'])
-                                                            ->orderBy('created_at','DESC')
-                                                            ->get([
-                                                                    'soldamount',
-                                                                    'boughtamount',
-                                                                    'soldcurrency',
-                                                                    'boughtcurrency',
-                                                                    'created_at'
-                                                            ]);
-                            $arr['wallet'] = Wallet::where('username','=',$_SESSION['username'])
-                                                    ->get([
-                                                        'currency',
-                                                        'amount'
-                                                    ]);
+                            $arr['transactions'] = $this->transaction->getTransactions($_SESSION['username']);
+                            $arr['wallet'] = $this->wallet->getWallet($_SESSION['username']);
                             $this->view('home/exchange',$arr);
                         }
                     }
@@ -176,6 +164,7 @@ class Home extends Controller {
                                     echo '9';
                                     $tuple2 = Wallet::where('username','=',$_SESSION['username'])->where('currency','=',$secondcurrency)->first();
                                     $tuple2->amount += 0.3*$firstamount; 
+                                    $tuple2->save();
                                 } else {
                                     echo '\'10\'';
                                     Wallet::create([
@@ -199,20 +188,8 @@ class Home extends Controller {
                             $arr['transactionMessage'] = 'You do not have any ' . $firstcurrency . ' !';
                         }
                     }
-                    $arr['transactions'] = Transaction::where('username','=',$_SESSION['username'])
-                                                            ->orderBy('created_at','DESC')
-                                                            ->get([
-                                                                    'soldamount',
-                                                                    'boughtamount',
-                                                                    'soldcurrency',
-                                                                    'boughtcurrency',
-                                                                    'created_at'
-                                                            ]);
-                    $arr['wallet'] = Wallet::where('username','=',$_SESSION['username'])
-                                            ->get([
-                                                'currency',
-                                                'amount'
-                                            ]);
+                    $arr['transactions'] = $this->transaction->getTransactions($_SESSION['username']);
+                    $arr['wallet'] = $this->wallet->getWallet($_SESSION['username']);
                     $this->view('home/exchange',$arr);  
                 }
             }
