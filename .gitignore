@@ -1,2 +1,4 @@
+vendor/composer/
 vendor/nesbot/
 vendor/symfony/
+vendor/illuminate/
