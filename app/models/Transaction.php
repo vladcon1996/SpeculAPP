@@ -4,15 +4,15 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Transaction extends Eloquent {
     protected $table = 'transactions';
-    protected $fillable = ['username','soldamount','boughtamount','soldcurrency','boughtcurrency'];
-    public function getTransactions($username) {
-        return Transaction::where('username','=',$username)
+    protected $fillable = ['userId','soldamount','boughtamount','soldcurrencyId','boughtcurrencyId'];
+    public function getTransactions($userId) {
+        return Transaction::where('userId','=',$userId)
         ->orderBy('created_at','DESC')
         ->get([
                 'soldamount',
                 'boughtamount',
-                'soldcurrency',
-                'boughtcurrency',
+                'soldcurrencyId',
+                'boughtcurrencyId',
                 'created_at'
         ]);
     }

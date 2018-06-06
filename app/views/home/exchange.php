@@ -7,9 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="/TehnologiiWeb/lab9/mvc/public/css/styles.css">
-<link rel="stylesheet" type="text/css" href="/TehnologiiWeb/lab9/mvc/public/css/exchangeform.css">
-<link rel="stylesheet" type="text/css" href="/TehnologiiWeb/lab9/mvc/public/css/portofolio.css">
+<link rel="stylesheet" type="text/css" href="../css/styles.css">
+<link rel="stylesheet" type="text/css" href="../css/exchangeform.css">
+<link rel="stylesheet" type="text/css" href="../css/portofolio.css">
 
 </head>
 <body onload="showDivs(4,1)">
@@ -195,7 +195,7 @@
                         if( sizeof($data['wallet']) ) {
                             foreach( $data['wallet'] as $wallet ) {
                                 echo '<tr><th></th>';
-                                echo '<td>' . $wallet->currency . '</td>';
+                                echo '<td>' . $wallet->currencyId . '</td>';
                                 echo '<td>' . $wallet->amount . '</td></tr>';
                             }
                         }
@@ -236,9 +236,9 @@
                             foreach( $data['transactions'] as $transaction ) {
                                 echo '<tr><th></th>';
                                 echo '<td>' . $transaction->soldamount . '</td>';
-                                echo '<td>' . $transaction->soldcurrency . '</td>';
+                                echo '<td>' . $transaction->soldcurrencyId . '</td>';
                                 echo '<td>' . $transaction->boughtamount . '</td>';
-                                echo '<td>' . $transaction->boughtcurrency . '</td>';
+                                echo '<td>' . $transaction->boughtcurrencyId . '</td>';
                                 echo '<td>' . $transaction->created_at . '</td></tr>';
                             }
                         }
@@ -327,10 +327,10 @@
 </div>
 
 
-<script src="/TehnologiiWeb/lab9/mvc/public/js/slider.js?v=2"></script>
+<script src="../js/slider.js?v=2"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script src="/TehnologiiWeb/lab9/mvc/public/js/chart.js?v=3"></script>
-<script src="/TehnologiiWeb/lab9/mvc/public/js/formvalidation.js?v=6"></script>
+<script src="../js/chart.js?v=3"></script>
+<script src="../js/formvalidation.js?v=6"></script>
 
 
 </body>

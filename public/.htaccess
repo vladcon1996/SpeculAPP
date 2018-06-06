@@ -1,7 +1,7 @@
 Options -MultiViews
 RewriteEngine On
 
-RewriteBase /TehnologiiWeb/lab9/mvc/public
+RewriteBase /TehnologiiWeb/TWProject/SpeculAPP/public
  
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

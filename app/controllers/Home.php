@@ -48,9 +48,10 @@ class Home extends Controller {
                     'email' => $email,
                     'password' => $password
                 ]);
+                echo User::select('id')->where('username',$username)->get()[0]->id;
                 $this->wallet->create([
-                    'username' => $username,
-                    'currency' => 'RON',
+                    'userId' => User::select('id')->where('username',$username)->get()[0]->id,
+                    'currencyId' => 6,
                     'amount' => 1000
                 ]);
                 $arr['registerMessage'] = 'Registration successful!';
@@ -79,8 +80,8 @@ class Home extends Controller {
                         if( $verif[0]->is_admin === 1 ) {
                             $this->view('home/admin',$arr);   
                         } else {
-                            $arr['transactions'] = $this->transaction->getTransactions($_SESSION['username']);
-                            $arr['wallet'] = $this->wallet->getWallet($_SESSION['username']);
+                            $arr['transactions'] = $this->transaction->getTransactions(User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id);
+                            $arr['wallet'] = $this->wallet->getWallet(User::select('id')->where('username','=',$_SESSION['username'])->get('id')[0]->id);
                             $this->view('home/exchange',$arr);
                         }
                     }
@@ -143,9 +144,9 @@ class Home extends Controller {
                         $arr['transactionMessage'] = 'Currency ' . $secondcurrency . ' does not exist !';
                     } else {
                         echo '3';
-                        if(Wallet::where('username','=',$_SESSION['username'])->where('currency','=',$firstcurrency)->count() ) {
+                        if(Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$firstcurrency)->get()[0]->id)->count() ) {
                             echo '4';
-                            $tuple = Wallet::where('username','=',$_SESSION['username'])->where('currency','=',$firstcurrency)->first();
+                            $tuple = Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$firstcurrency)->get()[0]->id)->first();
                             $walletamount = $tuple->amount;
                             if( $walletamount < $firstamount ) {
                                 echo '5';
@@ -160,25 +161,25 @@ class Home extends Controller {
                                     $tuple->amount -= $firstamount;
                                     $tuple->save();
                                 }
-                                if( Wallet::where('username','=',$_SESSION['username'])->where('currency','=',$secondcurrency)->count() ) {
+                                if( Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id)->count() ) {
                                     echo '9';
-                                    $tuple2 = Wallet::where('username','=',$_SESSION['username'])->where('currency','=',$secondcurrency)->first();
+                                    $tuple2 = Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id)->first();
                                     $tuple2->amount += 0.3*$firstamount; 
                                     $tuple2->save();
                                 } else {
                                     echo '\'10\'';
                                     Wallet::create([
-                                        'username' => $_SESSION['username'],
-                                        'currency' => $secondcurrency,
+                                        'userId' => User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id,
+                                        'currencyId' => Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id,
                                         'amount' => 0.3 * $firstamount
                                     ]);
                                 }
                                 $this->transaction->create([
-                                    'username' => $_SESSION['username'],
+                                    'userId' => User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id,
                                     'soldamount' => $firstamount,
                                     'boughtamount' => 0.3 * $firstamount,
-                                    'soldcurrency' => $firstcurrency,
-                                    'boughtcurrency' => $secondcurrency
+                                    'soldcurrencyId' => Currency::select('id')->where('name','=',$firstcurrency)->get()[0]->id,
+                                    'boughtcurrencyId' => Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id
                                 ]);
                                 $boughtamount = 0.3 * $firstamount;
                                 $arr['transactionMessage'] = 'Transaction succesfull . You obtained ' . $boughtamount . ' ' . $secondcurrency . ' !';
@@ -188,8 +189,8 @@ class Home extends Controller {
                             $arr['transactionMessage'] = 'You do not have any ' . $firstcurrency . ' !';
                         }
                     }
-                    $arr['transactions'] = $this->transaction->getTransactions($_SESSION['username']);
-                    $arr['wallet'] = $this->wallet->getWallet($_SESSION['username']);
+                    $arr['transactions'] = $this->transaction->getTransactions(User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id);
+                    $arr['wallet'] = $this->wallet->getWallet(User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id);
                     $this->view('home/exchange',$arr);  
                 }
             }

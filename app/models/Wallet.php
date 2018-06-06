@@ -5,11 +5,11 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class Wallet extends Eloquent {
     protected $table = 'wallet';
     public $timestamps = false;
-    protected $fillable = [ 'currency','username','amount'];
-    public function getWallet($username) {
-        return Wallet::where('username','=',$username)
+    protected $fillable = [ 'currencyId','userId','amount'];
+    public function getWallet($userId) {
+        return Wallet::where('userId','=',$userId)
             ->get([
-                'currency',
+                'currencyId',
                 'amount'
             ]);
     }
