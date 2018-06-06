@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-25"></div>
                 <div class="col-75">
-                    <input type="number" name="intervalend" required min="0">
+                    <input type="number" id="interval2" name="intervalend" required min="0">
                 </div>
             </div>
             <div class="row2">
@@ -101,13 +101,7 @@
                 <input type="submit" value="Add Currency">
             </div>
 
-            <p>
-             <?php
-                if( $data['addCurrencyMessage'] ) {
-                    echo $data['addCurrencyMessage'];
-                }
-             ?>
-            </p>
+            <p id="addCurrencyMessage"></p>
         </form>
         
         <form name="setLimits" action="javascript:void(0)" method="POST">
@@ -209,9 +203,10 @@
 </div>
 
 <script src="../js/slider.js?v=2"></script>
-<script src="../js/formvalidation.js?v=6"></script>
+<script src="../js/formvalidation.js?v=7"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
+<script src="../js/adminAjax.js"></script>
 
 </body>
 </html>

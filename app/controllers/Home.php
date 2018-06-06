@@ -78,7 +78,7 @@ class Home extends Controller {
                     if( session_start() ) {
                         $_SESSION['username'] = $username;
                         if( $verif[0]->is_admin === 1 ) {
-                            $this->view('home/admin',$arr);   
+                            $this->view('home/admin');   
                         } else {
                             $arr['transactions'] = $this->transaction->getTransactions(User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id);
                             $arr['wallet'] = $this->wallet->getWallet(User::select('id')->where('username','=',$_SESSION['username'])->get('id')[0]->id);
@@ -96,18 +96,17 @@ class Home extends Controller {
             User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
                 $currencyName = "";
                 $intervalBg = $intervalEnd = $validityTime = 0;
-                $arr = $this->dataTemplate;
                 if($_SERVER["REQUEST_METHOD"] == "POST" ) {
                     $currencyName = $this->test_input($_POST["currencyName"]);
                     $intervalBg = intval($this->test_input($_POST["intervalbg"]));
                     $intervalEnd = intval($this->test_input($_POST["intervalend"]));
                     $validityTime = intval($this->test_input($_POST["exchangevaliditytime"]));
                     if( !$currencyName || !$intervalBg || !$intervalEnd || !$validityTime ) {
-                        $arr['addCurrencyMessage'] = 'All fields required!';
+                        echo 'All fields required!';
                     } else if( $intervalBg >= $intervalEnd ) {
-                        $arr['addCurrencyMessage'] = 'Invalid interval : ' . $intervalBg . ' > ' . $intervalEnd . ' !';
+                        echo 'Invalid interval : ' . $intervalBg . ' > ' . $intervalEnd . ' !';
                     } else if(  Currency::where('name',$currencyName)->count() !== 0 ) {
-                        $arr['addCurrencyMessage'] = 'Currency ' . $currencyName .' already exists !';
+                        echo 'Currency ' . $currencyName .' already exists !';
                     } else {
                         Currency::create([
                             'name' => $currencyName,
@@ -115,9 +114,8 @@ class Home extends Controller {
                             'intervalend' => $intervalEnd,
                             'validitytime' => $validityTime
                         ]);
-                        $arr['addCurrencyMessage'] = 'Succesful add!';
+                        echo 'Succesful add!';
                     }
-                    $this->view('home/admin',$arr); 
                 }
         }
     }

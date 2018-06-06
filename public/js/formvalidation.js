@@ -67,7 +67,7 @@ if( document.forms["newCurrency"]) {
         var regForm = document.forms["newCurrency"];
         if( requiredFields("newCurrency") ) {
             if( isInterval() ) {
-                regForm.action = "addCurrency";
+                getAddCurrencyMessage(this);
             } else {
                 regForm.appendChild( nodeCreation("Invalid interval"));
             }

@@ -330,7 +330,7 @@
 <script src="../js/slider.js?v=2"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
-<script src="../js/formvalidation.js?v=6"></script>
+<script src="../js/formvalidation.js?v=7"></script>
 
 
 </body>
