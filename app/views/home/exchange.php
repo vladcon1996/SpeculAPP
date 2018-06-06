@@ -38,13 +38,7 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,3)">Currency</a>
             <div class="dropdown-content">
-                <?php
-                    if( sizeof($data['currencies']) ) {
-                        foreach( $data['currencies'] as $currency ) {
-                            echo '<a href="#">' . $currency->name . '</a>'; 
-                        }
-                    }
-                ?>
+            
             </div>
         </li>
         <li><a href="index">Logout</a></li>
@@ -58,13 +52,7 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,3)">Currency</a>
             <div class="dropdown-content">
-            <?php
-                    if( sizeof($data['currencies']) ) {
-                        foreach( $data['currencies'] as $currency ) {
-                            echo '<a href="#">' . $currency->name . '</a>'; 
-                        }
-                    }
-                ?>
+            
             </div>
         </li>
         <li><a href="index">Logout</a></li>
@@ -78,13 +66,7 @@
         <li class="dropdown">
             <a class="dropbtn active">Currency</a>
             <div class="dropdown-content">
-            <?php
-                    if( sizeof($data['currencies']) ) {
-                        foreach( $data['currencies'] as $currency ) {
-                            echo '<a href="#">' . $currency->name . '</a>'; 
-                        }
-                    }
-                ?>
+             
             </div>
         </li>
         <li><a href="index">Logout</a></li>
@@ -98,14 +80,8 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,3)">Currency</a>
             <div class="dropdown-content">
-            <?php
-                    if( sizeof($data['currencies']) ) {
-                        foreach( $data['currencies'] as $currency ) {
-                            echo '<a href="#">' . $currency->name . '</a>'; 
-                        }
-                    }
-                ?>
-        </div>
+            
+            </div>
         </li>
         <li><a href="index">Logout</a></li>
     </ul>
@@ -182,7 +158,7 @@
         <div class="side2">
 
             <p>Your Money</p><br>
-            <table class="table1">
+            <table id="walletTable" class="table1">
                     <thead>
                         <tr>
                             <th></th>
@@ -191,15 +167,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        if( sizeof($data['wallet']) ) {
-                            foreach( $data['wallet'] as $wallet ) {
-                                echo '<tr><th></th>';
-                                echo '<td>' . $wallet->currencyId . '</td>';
-                                echo '<td>' . $wallet->amount . '</td></tr>';
-                            }
-                        }
-                        ?> 
+                        
                     </tbody>
                     <tfoot>
                         <tr>
@@ -219,7 +187,7 @@
         
         <div class="main2">
             <p>Echange History</p><br>
-            <table class="table1">
+            <table id="historyTable" class="table1">
                 <thead>
                     <tr>
                         <th></th>
@@ -231,18 +199,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        if( sizeof($data['transactions']) ) {
-                            foreach( $data['transactions'] as $transaction ) {
-                                echo '<tr><th></th>';
-                                echo '<td>' . $transaction->soldamount . '</td>';
-                                echo '<td>' . $transaction->soldcurrencyId . '</td>';
-                                echo '<td>' . $transaction->boughtamount . '</td>';
-                                echo '<td>' . $transaction->boughtcurrencyId . '</td>';
-                                echo '<td>' . $transaction->created_at . '</td></tr>';
-                            }
-                        }
-                    ?>
+
                 </tbody>
             </table>
         </div>
@@ -331,7 +288,8 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/formvalidation.js?v=7"></script>
-
+<script src="../js/exchangeAjax.js?v=2"></script>
+<script src="../js/ajax.js"></script>
 
 </body>
 </html>

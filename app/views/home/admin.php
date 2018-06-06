@@ -40,9 +40,7 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(2,2)">Currency</a>
             <div class="dropdown-content">
-                <a href="#">EURO</a>
-                <a href="#">USD</a>
-                <a href="#">GBP</a>
+                
             </div>
         </li>
         <li><a class="nosld" href="index">Logout</a></li>
@@ -54,9 +52,7 @@
         <li class="dropdown">
             <a class="dropbtn active">Currency</a>
             <div class="dropdown-content">
-                <a href="#">EURO</a>
-                <a href="#">USD</a>
-                <a href="#">GBP</a>
+                
             </div>
         </li>
         <li><a class="nosld" href="index">Logout</a></li>
@@ -207,6 +203,7 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/adminAjax.js"></script>
+<script src="../js/ajax.js"></script>
 
 </body>
 </html>

@@ -8,12 +8,13 @@ class Controller {
     }
 
     public function view( $view , $data = [
-        'registerMessage' => '',
-        'loginMessage' => '',
-        'addCurrencyMessage' => '',
         'currencies' => [],
         'transactionMessage' => ''
     ]) {
         require_once '../app/views/' . $view . '.php';
+    }
+
+    public function dto( $dto ) {
+        require_once('../app/dto/' . $dto . '.php');
     }
 }

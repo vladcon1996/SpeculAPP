@@ -27,9 +27,7 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,2)">Currency</a>
             <div class="dropdown-content">
-                <a href="#">EURO</a>
-                <a href="#">USD</a>
-                <a href="#">GBP</a>
+                
             </div>
         </li>
         <li><a href="#login" onclick="showDivs(4,3)">Login</a></li>
@@ -42,9 +40,7 @@
         <li class="dropdown">
             <a class="dropbtn active">Currency</a>
             <div class="dropdown-content">
-                <a href="#">EURO</a>
-                <a href="#">USD</a>
-                <a href="#">GBP</a>
+                
             </div>
         </li>
         <li><a href="#login" onclick="showDivs(4,3)">Login</a></li>
@@ -57,9 +53,7 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,2)">Currency</a>
             <div class="dropdown-content">
-                <a href="#">EURO</a>
-                <a href="#">USD</a>
-                <a href="#">GBP</a>
+                
             </div>
         </li>
         <li><a class="active" href="#login">Login</a></li>
@@ -72,9 +66,7 @@
         <li class="dropdown">
             <a class="dropbtn" onclick="showDivs(4,2)">Currency</a>
             <div class="dropdown-content">
-                <a href="#">EURO</a>
-                <a href="#">USD</a>
-                <a href="#">GBP</a>
+                
             </div>
         </li>
         <li><a href="#login" onclick="showDivs(4,3)">Login</a></li>
@@ -236,6 +228,7 @@
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/urlinit.js"></script>
 <script src="../js/indexAjax.js"></script>
+<script src="../js/ajax.js"></script>
 
 </body>
 </html>

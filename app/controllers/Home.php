@@ -125,6 +125,43 @@ class Home extends Controller {
         }
     }
 
+
+    public function getTransactions() {
+        session_start();
+        $this->dto('TransactionDTO');
+        $userId;
+        $finalArray = [];
+        if( $_SESSION['username'] && !User::select('is_admin')->where('username','=',$_SESSION['username'])->first()->is_admin) {
+            $userId = User::select('id')->where('username','=',$_SESSION['username'])->first()->id;
+            $arr = Transaction::select('soldamount','boughtamount','created_at','soldcurrencyId','boughtcurrencyId')->where('userId','=',$userId)->orderBy('created_at','DESC')->get();
+            foreach( $arr as $transaction ) {
+                $transactions = new TransactionDTO($userId, $transaction);
+                array_push($finalArray, $transactions);
+            }
+            echo json_encode($finalArray);
+        }
+    }
+
+    public function getWallet() {
+        session_start();
+        $this->dto('WalletDTO');
+        $userId;
+        $finalArray = []; 
+        if( $_SESSION['username'] && !User::select('is_admin')->where('username','=',$_SESSION['username'])->first()->is_admin) {
+            $userId = User::select('id')->where('username','=',$_SESSION['username'])->first()->id;
+            $arr = Wallet::select('currencyId','amount')->where('userId','=',$userId)->get();
+            foreach( $arr as $walletElement ) {
+                $userWallet = new WalletDTO($userId, $walletElement);
+                array_push($finalArray, $userWallet);
+            }
+            echo json_encode($finalArray);
+        }
+    }
+
+    public function getCurrency() {
+        echo json_encode(Currency::select('name')->get());
+    }
+
     public function makeTransaction() {
         session_start();
         if( $_SESSION['username'] && 
