@@ -97,9 +97,9 @@ if( document.forms["exchange"] ) {
         var exForm = document.forms["exchange"];
         if( requiredFields("exchange") ) {
             if( document.getElementById("first").value === document.getElementById("second").value ) {
-                exForm.appendChild( nodeCreation(" Try exchanging different currencies*")); 
+                document.getElementById("transactionMessage").innerHTML = " Try exchanging different currencies*"; 
             } else {
-                exForm.action = "makeTransaction";
+                getExchangeMessage(this);
             }
         } else {
             exForm.appendChild( nodeCreation("All fields required*") );

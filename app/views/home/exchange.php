@@ -103,13 +103,7 @@
                     <div class="col-75">
                         <select id="first" name="firstcurrency" size="1" required>
                             <option value="" disabled selected> Select curency </option>
-                            <?php
-                                if( sizeof($data['currencies']) ) {
-                                    foreach( $data['currencies'] as $currency ) {
-                                        echo '<option>' . $currency->name . '</option>'; 
-                                    }
-                                }
-                            ?>
+                            
                         </select>
                     </div>
                     <div class="col-25"></div>
@@ -124,13 +118,7 @@
                     <div class="col-75">
                         <select id="second" name="secondcurrency" size="1" required>
                             <option value="" disabled selected> Select curency </option>
-                            <?php
-                                if( sizeof($data['currencies']) ) {
-                                    foreach( $data['currencies'] as $currency ) {
-                                        echo '<option>' . $currency->name . '</option>'; 
-                                    }
-                                }
-                            ?>
+                            
                         </select>
                     </div>
                     <div class="col-25"></div>
@@ -141,12 +129,8 @@
                 <div class="row2">
                     <input type="submit" value="Trade">
                 </div>
-                <p>
-                <?php
-                    if( $data['transactionMessage'] ) {
-                        echo $data['transactionMessage'];
-                    }
-                ?> 
+                <p id="transactionMessage">
+                
                 </p>
             </form>
         </div>

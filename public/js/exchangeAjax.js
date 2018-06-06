@@ -37,6 +37,19 @@ function getTransactions() {
     xmlhttp.send();
 }
 
+function getExchangeMessage(oFormElement) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("transactionMessage").innerHTML = this.responseText;
+            getWallet();
+            getTransactions();
+        }
+    };
+    xmlhttp.open("POST", "makeTransaction", true);
+    xmlhttp.send(new FormData(oFormElement));
+}
+
 
 window.addEventListener("load",function getInfo() {
     getWallet();
