@@ -52,7 +52,7 @@ if( document.forms["register"]) {
         var regForm = document.forms["register"];
         if( requiredFields("register") ) {
             if( isPassword()) {
-                regForm.action = "register";
+                getRegisterMessage(this);
             } else {
                 regForm.appendChild( nodeCreation("Your passwords do not match*"));
             }

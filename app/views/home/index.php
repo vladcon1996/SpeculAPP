@@ -138,7 +138,7 @@
     <!-- login -->
     <div class="myPage">
         <div class="full exchange">
-            <form name="login" action="login" method='POST'>
+            <form name="login" action="javascript:void(0)" onsubmit="getLoginMessage(this)">
                 <div class="row2">
                     <div class="col-25">
                         <label for="user"><b>Username</b></label>
@@ -155,14 +155,9 @@
                         <input id="pass" type="password" placeholder="Enter Password" name="password" required>
                     </div>
                 </div>
-                <input type="submit" value="Login" >
+                <input type="submit" value="Login">
                 <input type="checkbox" checked="checked"> Remember me
-                <p>
-                    <?php
-                        if( $data['loginMessage'] ) {
-                            echo $data['loginMessage'];
-                        } 
-                    ?>
+                <p id="loginMessage">
                 </p>
             </form>
         </div>
@@ -206,12 +201,7 @@
                 </div>
                 <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                 <input type="submit" value="Register">
-                <p>
-                    <?php
-                        if( $data['registerMessage'] ) {
-                            echo $data['registerMessage'];
-                        } 
-                    ?>
+                <p id="registerMessage">
                 </p>
             </form>    
         </div>
@@ -245,6 +235,7 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/urlinit.js"></script>
+<script src="../js/indexAjax.js"></script>
 
 </body>
 </html>

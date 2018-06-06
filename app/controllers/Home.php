@@ -14,9 +14,6 @@ class Home extends Controller {
         $this->wallet = $this->model('Wallet');
         $this->transaction = $this->model('Transaction');
         $this->dataTemplate = [
-            'registerMessage' => '',
-            'loginMessage' => '',
-            'addCurrencyMessage' => '',
             'currencies' => Currency::get(),
             'transactionMessage' => '',
             'transactions' => [],
@@ -29,60 +26,68 @@ class Home extends Controller {
         $this->view('home/index');
     }
 
+    public function exchange() {
+        session_start();
+        if( !User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
+            $this->view('home/exchange');
+        }
+    }
+
+    public function admin() {
+        session_start();
+        if( User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
+            $this->view('home/admin');
+        }
+    }
+
     public function register() {
         $username = $email = $password = "";
-        $arr = $this->dataTemplate;
         if( $_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $this->test_input($_POST["user"]);
             $email = $this->test_input($_POST["email"]);
             $password = $this->test_input($_POST["psw"]);
             if( $password === "" || $username === "" || $email === "" ) {
-                $arr['registerMessage'] = 'All fields requiered!';
+                echo 'All fields requiered!';
             } else if( $password !== $this->test_input($_POST["psw-repeat"])) {
-                $arr['registerMessage'] = 'Passwords do not match!';
+                echo 'Passwords do not match!';
             } else if( User::where('username',$username)->count() !== 0 ) {
-                $arr['registerMessage'] = 'Username already exists!';
+                echo 'Username already exists!';
             } else {
                 $this->user->create([
                     'username' => $username,
                     'email' => $email,
                     'password' => $password
                 ]);
-                echo User::select('id')->where('username',$username)->get()[0]->id;
                 $this->wallet->create([
                     'userId' => User::select('id')->where('username',$username)->get()[0]->id,
                     'currencyId' => 6,
                     'amount' => 1000
                 ]);
-                $arr['registerMessage'] = 'Registration successful!';
+                echo 'Registration successful!';
             }
-            $this->view('home/index',$arr);
         }
     }
 
     public function login() {
         $username = $password = "";
-        $arr = $this->dataTemplate;
         if( $_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $this->test_input($_POST["username"]);
             $password = $this->test_input($_POST["password"]);
             if( $password === "" || $username === "" ) {
-                $arr['loginMessage'] = 'All fields requiered!';
-                $this->view('home/index',$arr);
+                echo 'All fields requiered!';
             } else {
                 $verif = User::where('username','=',$username)->where('password','=',$password)->get();
                 if( sizeof($verif) === 0 ) {
-                    $arr['loginMessage'] = 'Username or password is invalid !';
-                    $this->view('home/index',$arr);
+                    echo 'Username or password is invalid !';
                 } else {
                     if( session_start() ) {
                         $_SESSION['username'] = $username;
                         if( $verif[0]->is_admin === 1 ) {
-                            $this->view('home/admin');   
+                            echo 'admin';   
                         } else {
-                            $arr['transactions'] = $this->transaction->getTransactions(User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id);
-                            $arr['wallet'] = $this->wallet->getWallet(User::select('id')->where('username','=',$_SESSION['username'])->get('id')[0]->id);
-                            $this->view('home/exchange',$arr);
+                            // $arr['transactions'] = $this->transaction->getTransactions(User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id);
+                            // $arr['wallet'] = $this->wallet->getWallet(User::select('id')->where('username','=',$_SESSION['username'])->get('id')[0]->id);
+                            echo 'user';
                         }
                     }
                 }
