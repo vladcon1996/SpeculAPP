@@ -17,4 +17,9 @@ class Controller {
     public function dto( $dto ) {
         require_once('../app/dto/' . $dto . '.php');
     }
+
+    public function service($service) {
+        require_once '../app/services/' . $service . '.php';
+        return new CurrencyGeneratorService();
+    }
 }

@@ -202,7 +202,7 @@
 <script src="../js/formvalidation.js?v=7"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
-<script src="../js/adminAjax.js"></script>
+<script src="../js/adminAjax.js?v=1"></script>
 <script src="../js/ajax.js"></script>
 
 </body>

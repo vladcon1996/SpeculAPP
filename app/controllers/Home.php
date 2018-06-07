@@ -6,31 +6,37 @@ class Home extends Controller {
     protected $currency;
     protected $wallet;
     protected $transaction;
-    protected $dataTemplate;
+    protected $currencyGenerator;
 
     public function __construct() {
         $this->user = $this->model('User');
         $this->currency = $this->model('Currency');
         $this->wallet = $this->model('Wallet');
         $this->transaction = $this->model('Transaction');
+        $this->currencyGenerator = $this->service('CurrencyGeneratorService');
     }
 
     public function index() {
-        session_unset();
+        session_start();
+        $_SESSION['username'] = '';
         $this->view('home/index');
     }
 
     public function exchange() {
         session_start();
-        if( !User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
-            $this->view('home/exchange');
+        if( $_SESSION['username']) {
+            if( !User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
+                $this->view('home/exchange');
+            }
         }
     }
 
     public function admin() {
         session_start();
-        if( User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
-            $this->view('home/admin');
+        if( $_SESSION['username']) {
+            if( User::where('username','=',$_SESSION['username'])->first()->is_admin ) {
+                $this->view('home/admin');
+            }
         }
     }
 
@@ -113,6 +119,7 @@ class Home extends Controller {
                             'intervalend' => $intervalEnd,
                             'validitytime' => $validityTime
                         ]);
+                        $this->currencyGenerator->setNewCurrency($currencyName, $intervalBg, $intervalEnd, $validityTime);
                         echo 'Succesful add!';
                     }
                 }
