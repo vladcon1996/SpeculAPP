@@ -5,11 +5,14 @@ function getWallet() {
         if (this.readyState == 4 && this.status == 200) {
             var wallet = JSON.parse(this.responseText);
             var txt = "";
+            var estimatedAmount = 0;
             for( x in wallet) {
                 txt += "<tr><th></th><td>" + wallet[x].currency + 
                             "</td><td>" + wallet[x].amount + "</td></tr>";
+                estimatedAmount += wallet[x].estimatedAmount;
             }
             document.getElementById("walletTable").getElementsByTagName("tbody")[0].innerHTML = txt;
+            document.getElementById("estimatedAmount").innerHTML = estimatedAmount;
         }
     };
     xmlhttp.open("GET", "getWallet", true);

@@ -16,6 +16,8 @@
 //     }
 // });
 
+var setIntervalId;
+
 function getCurrencies() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -32,6 +34,47 @@ function getCurrencies() {
             for( i=0; i < array.length; i++ ) {
                 array[i].innerHTML = txt;
             }
+            var currencies2 = document.getElementsByClassName("currencies");
+            for( var i = 0 ; i < currencies2.length ; i++ ) {
+                currencies2[i].addEventListener("click",function getValues() {
+                    console.log("ceva");
+                    values = [{ y : 0}, { y : 5 }];
+                    clearInterval(setIntervalId);
+                    if( chart != null ) {
+                        chart.destroy();
+                    }
+                    chart = new CanvasJS.Chart("chartContainer", { 
+                        zoomEnabled: true,
+                        title: {
+                            text: x.innerHTML
+                        },
+                        axisX: {
+                            minimum: 0,
+                            title : "Time units"
+                        },
+                        axisY: {
+                            minimum: document.getElementById("inter").innerHTML.split("-")[0],
+                            maximum: document.getElementById("inter").innerHTML.split("-")[1],
+                            includeZero: false,
+                            title: "Value"
+                        },
+                        data: [
+                        {
+                            type: "spline",
+                            dataPoints: values
+                        }
+                        ]
+                    });
+                    setIntervalId = setInterval( function() {
+                        addPoint( 
+                            { y : Math.random() * ( document.getElementById("inter").innerHTML.split("-")[1] 
+                            - document.getElementById("inter").innerHTML.split("-")[0] ) 
+                            + parseFloat(document.getElementById("inter").innerHTML.split("-")[0]) }
+                        );
+                    },
+                    document.getElementById("time").innerHTML * 1000 );
+                });
+            }
             var firstSelect = document.getElementById("first");
             if( firstSelect ) {
                 firstSelect.innerHTML = txt2;
@@ -41,10 +84,9 @@ function getCurrencies() {
                 secondSelect.innerHTML = txt2;
             }
         }
-    };
+    }
     xmlhttp.open("GET", "getCurrency", true);
     xmlhttp.send();
 }
 
 window.addEventListener("load",getCurrencies());
-

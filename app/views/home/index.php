@@ -228,7 +228,7 @@
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/urlinit.js"></script>
 <script src="../js/indexAjax.js"></script>
-<script src="../js/ajax.js"></script>
+<script src="../js/ajax.js?v=1"></script>
 
 </body>
 </html>

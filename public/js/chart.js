@@ -3,7 +3,7 @@ var chart;
 var newTimedValues = function() {
 	makeChart(document.getElementById("Current").innerHTML + "->" 
 			+ document.getElementById("otherValue").options[document.getElementById("otherValue").selectedIndex].value,[{ y : 0 }]); 
-	setInterval( function() {
+		setIntervalId = setInterval( function() {
 		addPoint( 
 			{ y : Math.random() * ( document.getElementById("inter").innerHTML.split("-")[1] 
 			- document.getElementById("inter").innerHTML.split("-")[0] ) 

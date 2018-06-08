@@ -163,7 +163,7 @@
                                     <option value="GBP">GBP</option>
                                 </select> 
                             </td>
-                            <td> 1500 </td>
+                            <td id="estimatedAmount"> 1500 </td>
                         </tr>
                     </tfoot>
                 </table>
@@ -272,8 +272,8 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/formvalidation.js?v=7"></script>
-<script src="../js/exchangeAjax.js?v=2"></script>
-<script src="../js/ajax.js"></script>
+<script src="../js/exchangeAjax.js?v=3"></script>
+<script src="../js/ajax.js?v=1"></script>
 
 </body>
 </html>

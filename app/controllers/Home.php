@@ -152,7 +152,7 @@ class Home extends Controller {
             $userId = User::select('id')->where('username','=',$_SESSION['username'])->first()->id;
             $arr = Wallet::select('currencyId','amount')->where('userId','=',$userId)->get();
             foreach( $arr as $walletElement ) {
-                $userWallet = new WalletDTO($userId, $walletElement);
+                $userWallet = new WalletDTO($userId, $walletElement, $this->currencyGenerator);
                 array_push($finalArray, $userWallet);
             }
             echo json_encode($finalArray);
@@ -161,6 +161,23 @@ class Home extends Controller {
 
     public function getCurrency() {
         echo json_encode(Currency::select('name')->get());
+    }
+
+    protected function getBoughtAmount($soldAmount, $soldCurrency, $boughtCurrency ) {
+        if( $soldCurrency === 'RON' ) {
+            $soldF = 1; 
+        } else {
+            $soldF = $this->currencyGenerator->getLastValue($soldCurrency);
+        }
+
+        if( $boughtCurrency === 'RON' ) {
+            $boughtF = 1;
+        } else {
+            $boughtF = $this->currencyGenerator->getLastValue($boughtCurrency);
+        }
+        echo $soldAmount . ' ' . $soldCurrency . ' ' . $boughtCurrency;
+        echo $soldF . ' ' . $boughtF;
+        return $soldF / $boughtF * $soldAmount;
     }
 
     public function makeTransaction() {
@@ -175,9 +192,9 @@ class Home extends Controller {
                     $firstamount = intval($this->test_input($_POST["first"]));
                     if( !$firstcurrency || !$secondcurrency || !$firstamount ) {
                         echo 'All fields required!';
-                    } else if( !Currency::where('name','=',$firstcurrency)->count() ) {
+                    } else if( !isCurrency($firstcurrency) ) {
                         echo 'Currency ' . $firstcurrency . ' does not exist !';
-                    } else if ( !Currency::where('name','=',$secondcurrency)->count() ) {
+                    } else if ( !isCurrency($secondcurrency) ) {
                         $arr['transactionMessage'] = 'Currency ' . $secondcurrency . ' does not exist !';
                     } else {
                         if(Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$firstcurrency)->get()[0]->id)->count() ) {
@@ -192,25 +209,25 @@ class Home extends Controller {
                                     $tuple->amount -= $firstamount;
                                     $tuple->save();
                                 }
+                                $boughtamount = $this->getBoughtAmount($firstamount, $firstcurrency, $secondcurrency ); 
                                 if( Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id)->count() ) {
                                     $tuple2 = Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id)->first();
-                                    $tuple2->amount += 0.3*$firstamount; 
+                                    $tuple2->amount += $boughtamount; 
                                     $tuple2->save();
                                 } else {
                                     Wallet::create([
                                         'userId' => User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id,
                                         'currencyId' => Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id,
-                                        'amount' => 0.3 * $firstamount
+                                        'amount' => $boughtamount
                                     ]);
                                 }
                                 $this->transaction->create([
                                     'userId' => User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id,
                                     'soldamount' => $firstamount,
-                                    'boughtamount' => 0.3 * $firstamount,
+                                    'boughtamount' => $boughtamount,
                                     'soldcurrencyId' => Currency::select('id')->where('name','=',$firstcurrency)->get()[0]->id,
                                     'boughtcurrencyId' => Currency::select('id')->where('name','=',$secondcurrency)->get()[0]->id
                                 ]);
-                                $boughtamount = 0.3 * $firstamount;
                                 echo 'Transaction succesfull . You obtained ' . $boughtamount . ' ' . $secondcurrency . ' !';
                             }
                         } else {
@@ -221,6 +238,9 @@ class Home extends Controller {
             }
     }
 
+    protected function isCurrency( $currency ) {
+        return Currency::where('name','=',$currency)->count();
+    }
     
 
     protected function test_input( $data ) {
