@@ -202,17 +202,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" >Into</th>
-                        <td>
-                        <select id="otherValue" name="OtherCurrencies" size="1">
-                            <option value="RON">RON</option>
-                            <option value="EURO">EURO</option>
-                            <option value="USD">USD</option>
-                            <option value="GBP">GBP</option>
-                        </select>
-                        </td>
-                    </tr>
-                    <tr>
                         <th scope="row" >Amount</th>
                         <td id="currentValue"> 4.45 </td>
                     </tr>
@@ -273,7 +262,7 @@
 <script src="../js/chart.js?v=3"></script>
 <script src="../js/formvalidation.js?v=7"></script>
 <script src="../js/exchangeAjax.js?v=3"></script>
-<script src="../js/ajax.js?v=1"></script>
+<script src="../js/ajax.js?v=2"></script>
 
 </body>
 </html>

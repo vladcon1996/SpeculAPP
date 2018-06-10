@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class XmlParser {
 
-    private final String FILE_PATH = "C:\\Users\\Stefan\\Downloads\\InfoFacultate\\TW\\CurrencyGenerator\\src\\currencies\\generatedValues.xml";
+    private final String FILE_PATH = "C:\\xampp\\htdocs\\TehnologiiWeb\\TWProject\\SpeculAPP\\CurrencyGenerator\\src\\currencies\\generatedValues.xml";
 
     XmlParser() {
         try {

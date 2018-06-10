@@ -95,6 +95,20 @@ class Home extends Controller {
         }
     }
 
+    public function getLastValue( $currencyName ) {
+        if( Currency::where('name','=',$currencyName)->count() !== 0 ) {
+            echo  $this->currencyGenerator->getLastValue( $currencyName );
+        }
+    }
+
+    public function getCurrencyInfo( $currencyName ) {
+        if( Currency::where('name','=',$currencyName)->count() !== 0 ) {
+            $this->dto('CurrencyDTO');
+            $currencyInfo = new CurrencyDTO( Currency::where('name','=',$currencyName)->first() , $this->currencyGenerator );
+            echo json_encode($currencyInfo);
+        }
+    }
+
     public function addCurrency() {
         session_start();
         if( $_SESSION['username'] && 

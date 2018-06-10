@@ -4,6 +4,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,6 +16,7 @@ public class CurrencyThread extends Thread {
     private Integer time;
     private XmlParser xmlParser;
     private Float lastValue;
+//    private DecimalFormat DF = new DecimalFormat("#.##");
 
     CurrencyThread( String currency, Float intervalBg, Float intervalEnd, Integer time , XmlParser xmlParser ) {
         this.currency = currency;

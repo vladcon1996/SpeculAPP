@@ -37,42 +37,60 @@ function getCurrencies() {
             var currencies2 = document.getElementsByClassName("currencies");
             for( var i = 0 ; i < currencies2.length ; i++ ) {
                 currencies2[i].addEventListener("click",function getValues() {
-                    console.log("ceva");
-                    values = [{ y : 0}, { y : 5 }];
-                    clearInterval(setIntervalId);
-                    if( chart != null ) {
-                        chart.destroy();
-                    }
-                    chart = new CanvasJS.Chart("chartContainer", { 
-                        zoomEnabled: true,
-                        title: {
-                            text: x.innerHTML
-                        },
-                        axisX: {
-                            minimum: 0,
-                            title : "Time units"
-                        },
-                        axisY: {
-                            minimum: document.getElementById("inter").innerHTML.split("-")[0],
-                            maximum: document.getElementById("inter").innerHTML.split("-")[1],
-                            includeZero: false,
-                            title: "Value"
-                        },
-                        data: [
-                        {
-                            type: "spline",
-                            dataPoints: values
+                    
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var currencyInfo = JSON.parse(this.responseText);
+                            console.log(currencyInfo);
+
+                            document.getElementById("Current").innerHTML = currencyInfo.currencyName;
+                            document.getElementById("inter").innerHTML = currencyInfo.intervalBegin + " - " + currencyInfo.intervalEnd;
+                            document.getElementById("time").innerHTML = currencyInfo.time;
+                            values = [{y:5},{y:9}]
+                            clearInterval(setIntervalId);
+                            if( chart != null ) {
+                                chart.destroy();
+                            }
+                            chart = new CanvasJS.Chart("chartContainer", { 
+                                zoomEnabled: true,
+                                title: {
+                                    text: currencyInfo.currencyName
+                                },
+                                axisX: {
+                                    minimum: 0,
+                                    title : "Time units"
+                                },
+                                axisY: {
+                                    minimum: currencyInfo.intervalBegin,
+                                    maximum: currencyInfo.intervalEnd,
+                                    includeZero: false,
+                                    title: "Value"
+                                },
+                                data: [
+                                {
+                                    type: "spline",
+                                    dataPoints: currencyInfo.values
+                                }
+                                ]
+                            });
+                            setIntervalId = setInterval( function() {
+                                var xhr2 = new XMLHttpRequest();
+                                xhr2.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        addPoint( 
+                                            { y : parseFloat(this.responseText) }
+                                        );
+                                    }
+                                }
+                                xhr2.open("GET","getLastValue/"+ currencyInfo.currencyName,true);
+                                xhr2.send();
+                            },
+                            currencyInfo.time * 1000 );
                         }
-                        ]
-                    });
-                    setIntervalId = setInterval( function() {
-                        addPoint( 
-                            { y : Math.random() * ( document.getElementById("inter").innerHTML.split("-")[1] 
-                            - document.getElementById("inter").innerHTML.split("-")[0] ) 
-                            + parseFloat(document.getElementById("inter").innerHTML.split("-")[0]) }
-                        );
-                    },
-                    document.getElementById("time").innerHTML * 1000 );
+                    }
+                    xhr.open("GET", "getCurrencyInfo/" + this.innerHTML , true);
+                    xhr.send();
                 });
             }
             var firstSelect = document.getElementById("first");
