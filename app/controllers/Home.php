@@ -63,7 +63,7 @@ class Home extends Controller {
                 $this->user->create([
                     'username' => $username,
                     'email' => $email,
-                    'password' => $password
+                    'password' => password_hash($password, PASSWORD_DEFAULT)
                 ]);
                 $this->wallet->create([
                     'userId' => User::select('id')->where('username',$username)->get()[0]->id,
@@ -83,8 +83,8 @@ class Home extends Controller {
             if( $password === "" || $username === "" ) {
                 echo 'All fields requiered!';
             } else {
-                $verif = User::where('username','=',$username)->where('password','=',$password)->get();
-                if( sizeof($verif) === 0 ) {
+                $verif = User::where('username','=',$username)->get();
+                if( sizeof($verif) === 0 || password_verify($password, $verif[0]->password) === false ) {
                     echo 'Username or password is invalid !';
                 } else {
                     if( session_start() ) {
@@ -103,16 +103,27 @@ class Home extends Controller {
     }
 
     public function getLastValue( $currencyName ) {
+        $currencyName = $this->test_input($currencyName);
         if( Currency::where('name','=',$currencyName)->count() !== 0 ) {
             echo  $this->currencyGenerator->getLastValue( $currencyName );
         }
     }
 
     public function getCurrencyInfo( $currencyName ) {
+        $currencyName = $this->test_input($currencyName);
         if( Currency::where('name','=',$currencyName)->count() !== 0 ) {
             $this->dto('CurrencyDTO');
             $currencyInfo = new CurrencyDTO( Currency::where('name','=',$currencyName)->first() , $this->currencyGenerator );
             echo json_encode($currencyInfo);
+        }
+    }
+
+    public function getAmount($soldAmount, $soldCurrency, $boughtCurrency) {
+        $soldAmount = $this->test_input($soldAmount);
+        $soldCurrency = $this->test_input($soldCurrency);
+        $boughtCurrency = $this->test_input($boughtCurrency);
+        if( Currency::where('name','=',$boughtCurrency)->count() !== 0 || Currency::where('name','=',$soldCurrency)->count() !== 0 || $soldAmount > 0 ) {
+            echo $this->getBoughtAmount($soldAmount, $soldCurrency, $boughtCurrency);
         }
     }
 

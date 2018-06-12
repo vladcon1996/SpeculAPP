@@ -64,9 +64,55 @@ function getExchangeMessage(oFormElement) {
     xmlhttp.send(new FormData(oFormElement));
 }
 
+var echangeSetIntervalId;
+
+function getAmount(oFormElement) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if( this.readyState == 4 && this.status == 200 ) {
+            
+        }
+    }
+    var first = oFormElement.getElementById("first").value;
+    var second = oFormElement.getElementById("second").value;
+    var firstAmount = oFormElement.getElementById("firstamount").value;
+    xmlhttp.open("GET", "getAmount/" + firstAmount + "/" + first + "/" + second, true );
+    xmlhttp.send();
+}
+
+function exchangeInterval() {
+    echangeSetIntervalId = setInterval(getAmount(document.getElementById("exchangeForm")),10*1000);
+}
+
+function startInterval() {
+    console.log("start");
+    var first = document.getElementById("first").value;
+    var second = document.getElementById("second").value;
+    var firstAmount = document.getElementById("firstamount").value;
+
+    console.log(first + " " + second + " " + firstAmount );
+    if( first && second && firstAmount && first != second  ) {
+        console.log("yes");
+        exchangeInterval();
+    }
+}
+
+function stopInterval() {
+    console.log("stop");
+    clearInterval(echangeSetIntervalId);
+}
 
 window.addEventListener("load",function getInfo() {
     getWallet();
     getTransactions();
     getUsername();
+
+    document.getElementById("first").addEventListener("blur",startInterval());
+    document.getElementById("second").addEventListener("blur",startInterval());
+    document.getElementById("firstamount").addEventListener("blur",startInterval());
+
+    document.getElementById("first").addEventListener("change",stopInterval());
+    document.getElementById("second").addEventListener("change",stopInterval());
+    document.getElementById("firstamount").addEventListener("change",stopInterval());
+
 });
