@@ -1,5 +1,7 @@
 <?php
 
+define ('RON',21);
+
 class Home extends Controller {
 
     protected $user;
@@ -19,6 +21,9 @@ class Home extends Controller {
     public function index() {
         session_start();
         $_SESSION['username'] = '';
+
+        $this->getLastValuesForAllCurrencies();
+
         $this->view('home/index');
     }
 
@@ -105,7 +110,7 @@ class Home extends Controller {
     public function getLastValue( $currencyName ) {
         $currencyName = $this->test_input($currencyName);
         if( Currency::where('name','=',$currencyName)->count() !== 0 ) {
-            echo  $this->currencyGenerator->getLastValue( $currencyName );
+            echo  $this->currencyGenerator->getLastValue( Currency::select('id')->where('name','=',$currencyName)->first()->id);
         }
     }
 
@@ -151,7 +156,8 @@ class Home extends Controller {
                             'intervalend' => $intervalEnd,
                             'validitytime' => $validityTime
                         ]);
-                        $this->currencyGenerator->setNewCurrency($currencyName, $intervalBg, $intervalEnd, $validityTime);
+                        $currencyId = Currency::select('id')->where('name','=',$currencyName)->first()->id;
+                        $this->currencyGenerator->setNewCurrency($currencyId, $currencyName, $intervalBg, $intervalEnd, $validityTime);
                         echo 'Succesful add!';
                     }
                 }
@@ -199,13 +205,13 @@ class Home extends Controller {
         if( $soldCurrency === 'RON' ) {
             $soldF = 1; 
         } else {
-            $soldF = $this->currencyGenerator->getLastValue($soldCurrency);
+            $soldF = $this->currencyGenerator->getLastValue(Currency::select('id')->where('name','=',$soldCurrency)->first()->id);
         }
 
         if( $boughtCurrency === 'RON' ) {
             $boughtF = 1;
         } else {
-            $boughtF = $this->currencyGenerator->getLastValue($boughtCurrency);
+            $boughtF = $this->currencyGenerator->getLastValue(Currency::select('id')->where('name','=',$boughtCurrency)->first()->id);
         }
         return round($soldF / $boughtF * $soldAmount,2);
     }
@@ -270,6 +276,11 @@ class Home extends Controller {
 
     protected function isCurrency( $currency ) {
         return Currency::where('name','=',$currency)->count();
+    }
+
+    protected function getLastValuesForAllCurrencies() {
+        $arr = $this->currency->getIds();
+        print_r($arr);
     }
     
 

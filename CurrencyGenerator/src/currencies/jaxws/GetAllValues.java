@@ -8,13 +8,13 @@ import javax.xml.bind.annotation.*;
 public class GetAllValues {
 
     @XmlElement(name = "arg0", namespace = "")
-    private String currency;
+    private Integer id;
 
-    public String getCurrency() {
-        return currency;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

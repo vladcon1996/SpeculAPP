@@ -8,16 +8,19 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "StartCurrencyGenerator", namespace = "http://currencies/")
 public class StartCurrencyGenerator {
 
-    @XmlElement(name = "arg0", namespace = "")
-    private String currency;
+    @XmlElement( name= "arg0", namespace = "")
+    private Integer id;
 
     @XmlElement(name = "arg1", namespace = "")
-    private Float intervalBg;
+    private String currency;
 
     @XmlElement(name = "arg2", namespace = "")
-    private Float intervalEnd;
+    private Float intervalBg;
 
     @XmlElement(name = "arg3", namespace = "")
+    private Float intervalEnd;
+
+    @XmlElement(name = "arg4", namespace = "")
     private Integer time;
 
     public String getCurrency() {
@@ -51,4 +54,8 @@ public class StartCurrencyGenerator {
     public void setTime(Integer time) {
         this.time = time;
     }
+
+    public Integer getId() { return id;}
+
+    public void setId(Integer id) { this.id = id;}
 }

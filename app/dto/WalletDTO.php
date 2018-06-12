@@ -15,7 +15,7 @@ class WalletDTO {
         if( $this->currency === 'RON') {
             $currencyF = 1;
         } else {
-            $currencyF = $currencyGenerator->getLastValue($this->currency);  
+            $currencyF = $currencyGenerator->getLastValue($wallet['currencyId']);  
         }
         $this->estimatedAmount = round($this->amount * $currencyF, 2);
     }

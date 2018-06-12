@@ -23,7 +23,7 @@ class CurrencyDTO {
         $this->intervalEnd = $currency['intervalend'];
         $this->time = $currency['validitytime'];
 
-        $values = $currencyGenerator->getAllValues($this->currencyName); 
+        $values = $currencyGenerator->getAllValues($currency['id']); 
         foreach( $values as $value ) {
             array_push($this->values, new Value($value));
         }
