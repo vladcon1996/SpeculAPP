@@ -16,11 +16,13 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class XmlParser {
 
-    private final String FILE_PATH = "C:\\xampp\\htdocs\\TehnologiiWeb\\TWProject\\SpeculAPP\\CurrencyGenerator\\src\\currencies\\generatedValues.xml";
+    private static final String FILE_PATH = "C:\\xampp\\htdocs\\TehnologiiWeb\\TWProject\\SpeculAPP\\CurrencyGenerator\\src\\currencies\\generatedValues.xml";
+    public static final DecimalFormat DF = new DecimalFormat("#.##");
 
     XmlParser() {
         try {
@@ -85,7 +87,7 @@ public class XmlParser {
 
             NodeList currencyName = doc.getElementsByTagName(currency);
             Node value = doc.createElement("value");
-            value.appendChild(doc.createTextNode(currencyVal.toString()));
+            value.appendChild(doc.createTextNode( DF.format(currencyVal) ));
             currencyName.item(0).appendChild(value);
 
             this.transform(doc);

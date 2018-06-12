@@ -17,6 +17,6 @@ class WalletDTO {
         } else {
             $currencyF = $currencyGenerator->getLastValue($this->currency);  
         }
-        $this->estimatedAmount = $this->amount * $currencyF;
+        $this->estimatedAmount = round($this->amount * $currencyF, 2);
     }
 }

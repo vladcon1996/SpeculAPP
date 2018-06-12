@@ -60,7 +60,7 @@ class Home extends Controller {
                 ]);
                 $this->wallet->create([
                     'userId' => User::select('id')->where('username',$username)->get()[0]->id,
-                    'currencyId' => 6,
+                    'currencyId' => Currency::select('id')->where('name','RON')->first()->id,
                     'amount' => 1000
                 ]);
                 echo 'Registration successful!';
@@ -189,9 +189,7 @@ class Home extends Controller {
         } else {
             $boughtF = $this->currencyGenerator->getLastValue($boughtCurrency);
         }
-        echo $soldAmount . ' ' . $soldCurrency . ' ' . $boughtCurrency;
-        echo $soldF . ' ' . $boughtF;
-        return $soldF / $boughtF * $soldAmount;
+        return round($soldF / $boughtF * $soldAmount,2);
     }
 
     public function makeTransaction() {
@@ -206,9 +204,9 @@ class Home extends Controller {
                     $firstamount = intval($this->test_input($_POST["first"]));
                     if( !$firstcurrency || !$secondcurrency || !$firstamount ) {
                         echo 'All fields required!';
-                    } else if( !isCurrency($firstcurrency) ) {
+                    } else if( !$this->isCurrency($firstcurrency) ) {
                         echo 'Currency ' . $firstcurrency . ' does not exist !';
-                    } else if ( !isCurrency($secondcurrency) ) {
+                    } else if ( !$this->isCurrency($secondcurrency) ) {
                         $arr['transactionMessage'] = 'Currency ' . $secondcurrency . ' does not exist !';
                     } else {
                         if(Wallet::where('userId','=',User::select('id')->where('username','=',$_SESSION['username'])->get()[0]->id)->where('currencyId','=',Currency::select('id')->where('name','=',$firstcurrency)->get()[0]->id)->count() ) {

@@ -47,7 +47,7 @@ public class ThreadManager {
         if( currencyThreadList.get(currency) == null ) {
             return Float.valueOf(-1);
         }
-        return currencyThreadList.get(currency).getLastValue();
+        return Float.parseFloat(XmlParser.DF.format(currencyThreadList.get(currency).getLastValue()));
     }
 
     @WebMethod
