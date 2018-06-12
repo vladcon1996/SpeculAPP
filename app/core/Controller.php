@@ -7,11 +7,8 @@ class Controller {
         return new $model();
     }
 
-    public function view( $view , $data = [
-        'currencies' => [],
-        'transactionMessage' => ''
-    ]) {
-        require_once '../app/views/' . $view . '.php';
+    public function view( $view , $data = []) {
+        require_once '../app/views/' . $view . '.html';
     }
 
     public function dto( $dto ) {

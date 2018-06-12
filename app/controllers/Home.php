@@ -40,6 +40,13 @@ class Home extends Controller {
         }
     }
 
+    public function getUsername() {
+        session_start();
+        if( $_SESSION['username']) {
+            echo $_SESSION['username'];
+        }
+    }
+
     public function register() {
         $username = $email = $password = "";
         if( $_SERVER["REQUEST_METHOD"] == "POST") {

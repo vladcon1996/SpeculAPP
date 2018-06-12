@@ -1,4 +1,15 @@
 
+function getUsername() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if( this.readyState == 4 && this.status == 200 ) {
+            document.getElementById("username").innerHTML = this.responseText;
+        }
+    }
+    xmlhttp.open("GET", "getUsername", true );
+    xmlhttp.send();
+}
+
 function getWallet() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -57,4 +68,5 @@ function getExchangeMessage(oFormElement) {
 window.addEventListener("load",function getInfo() {
     getWallet();
     getTransactions();
+    getUsername();
 });
