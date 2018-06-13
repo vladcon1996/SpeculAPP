@@ -42,6 +42,10 @@ class Home extends Controller {
         }
     }
 
+    public function ranking() {
+        $this->view('home/ranking');
+    }
+
     public function getUsername() {
         session_start();
         if( $_SESSION['username']) {

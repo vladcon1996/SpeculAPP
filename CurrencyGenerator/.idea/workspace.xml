@@ -20,14 +20,8 @@
       <file leaf-file-name="GetAllValues.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllValues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#404#405#0" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-                <element signature="e#472#473#0" expanded="true" />
-                <element signature="e#512#513#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -35,8 +29,8 @@
       <file leaf-file-name="GetAllValuesResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllValuesResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="272">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,8 +41,8 @@
       <file leaf-file-name="ThreadManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/ThreadManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-184">
-              <caret line="28" column="63" lean-forward="true" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+            <state relative-caret-position="408">
+              <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,7 +62,7 @@
       <file leaf-file-name="GetAllLastValues.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="238">
               <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -80,8 +74,8 @@
       <file leaf-file-name="StartCurrencyGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/StartCurrencyGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="59" column="50" lean-forward="true" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
+            <state relative-caret-position="731">
+              <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -90,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/StartCurrencyGeneratorResponse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -98,8 +92,8 @@
       <file leaf-file-name="GetAllLastValuesResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValuesResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="221">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,12 +104,8 @@
       <file leaf-file-name="GetLastValue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetLastValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-              <folding>
-                <element signature="e#375#376#0" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -124,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetLastValueResponse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -245,8 +235,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -344,18 +334,18 @@
       <workItem from="1528760180030" duration="2358000" />
       <workItem from="1528807346954" duration="328000" />
       <workItem from="1528830687879" duration="11048000" />
+      <workItem from="1528903691735" duration="840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35425000" />
+    <option name="totallyTimeSpent" value="36265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
@@ -377,6 +367,7 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -465,9 +456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="22" column="149" selection-start-line="22" selection-start-column="149" selection-end-line="22" selection-end-column="149" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -544,9 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1904">
           <caret line="128" column="20" lean-forward="true" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,9 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
           <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -670,9 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,48 +669,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/StartCurrencyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="59" column="50" lean-forward="true" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
+        <state relative-caret-position="731">
+          <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/StartCurrencyGeneratorResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetLastValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetLastValueResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllValuesResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="272">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -740,21 +712,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValuesResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="221">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -763,8 +729,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/ThreadManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="28" column="63" lean-forward="true" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+        <state relative-caret-position="408">
+          <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -773,7 +739,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="238">
           <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
