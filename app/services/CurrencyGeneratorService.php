@@ -47,11 +47,10 @@ class CurrencyGeneratorService {
             'arg0' => $idArray
         );
         $res = $this->soapClient->getAllLastValues($this->params);
-        print_r($res);
         if( sizeof(get_object_vars($res)) === 0 ) {
             return null;
         } else {
-            if( sizeof($res->return) !== sizeof($currencyArray) ) {
+            if( sizeof($res->return) !== sizeof($idArray) ) {
                 return null;
             } else {
                 return $res->return;

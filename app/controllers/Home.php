@@ -21,9 +21,6 @@ class Home extends Controller {
     public function index() {
         session_start();
         $_SESSION['username'] = '';
-
-        $this->getLastValuesForAllCurrencies();
-
         $this->view('home/index');
     }
 
@@ -274,13 +271,40 @@ class Home extends Controller {
             }
     }
 
+    public function getUserInfo() {
+        $finalArrayValues = $this->getLastValuesForAllCurrencies();
+        $users = User::select('id','username')->where('is_admin','=',0)->get();
+        $this->dto('UserDTO');
+        $userInfoArray = array();
+        foreach($users as $user) {
+            $wallet = Wallet::select('currencyId','amount')->where('userId','=',$user->id)->get();
+            $userDTO = new UserDTO($user, $wallet, $finalArrayValues );
+            array_push($userInfoArray, $userDTO);
+        }
+        // print_r($userInfoArray);
+        usort($userInfoArray, function($a, $b) {
+            return $b->estimatedAmount - $a->estimatedAmount;
+        });
+        // print_r($userInfoArray);
+        echo json_encode($userInfoArray);
+    }
+
     protected function isCurrency( $currency ) {
         return Currency::where('name','=',$currency)->count();
     }
 
     protected function getLastValuesForAllCurrencies() {
         $arr = $this->currency->getIds();
-        print_r($arr);
+        $values = $this->currencyGenerator->getAllLastValues($arr);
+        if( is_null($values) ) {
+            return null;
+        }
+        $finalArray = array();
+        for( $i = 0 ; $i < count($arr); $i++ ) {
+            $finalArray[$arr[$i]] = $values[$i];
+        }
+        // print_r($finalArray);
+        return $finalArray;
     }
     
 

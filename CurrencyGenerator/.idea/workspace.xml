@@ -17,18 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CurrencyThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/currencies/CurrencyThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GetAllValues.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllValues.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -56,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThreadManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/currencies/ThreadManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-184">
@@ -64,6 +52,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generatedValues.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/currencies/generatedValues.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="53" selection-start-column="53" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -346,12 +343,12 @@
       <workItem from="1528712610572" duration="610000" />
       <workItem from="1528760180030" duration="2358000" />
       <workItem from="1528807346954" duration="328000" />
-      <workItem from="1528830687879" duration="9587000" />
+      <workItem from="1528830687879" duration="11048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33964000" />
+    <option name="totallyTimeSpent" value="35425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -367,7 +364,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29822162" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29822162" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -689,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/currencies/generatedValues.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="53" selection-start-column="53" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/CurrencyThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -761,16 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValuesResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -788,6 +768,23 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/currencies/jaxws/GetAllLastValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/currencies/generatedValues.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="53" selection-start-column="53" selection-end-column="53" />
         </state>
       </provider>
     </entry>

@@ -9,11 +9,10 @@ class Currency extends Eloquent {
 
     public function getIds() {
         $currencyArray = Currency::select('id')->get();
-        print_r($currencyArray);
         $arr = array();
-        foreach($currencyArray as $currencyId) {
-            if( $currencyId->id !== RON ) {
-                array_push($arr,$currencyId);
+        for( $i = 0; $i < count($currencyArray); $i++ ) {
+            if( $currencyArray[$i]->id !== RON ) {
+                array_push($arr,$currencyArray[$i]->id);
             }
         }
         return $arr;
