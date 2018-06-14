@@ -58,12 +58,12 @@ function updatePoint() {
 
 }
 
-document.body.addEventListener("load",newTimedValues());
-document.getElementById("otherValue").addEventListener("change",function() {
-	if( this.selectedIndex ) {
-		newTimedValues();
-	}
-});
+// document.body.addEventListener("load",newTimedValues());
+// document.getElementById("otherValue").addEventListener("change",function() {
+// 	if( this.selectedIndex ) {
+// 		newTimedValues();
+// 	}
+// });
 
 /*function changeBaseCurrency() {
 	makeChart([]);

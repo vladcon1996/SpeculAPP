@@ -27,7 +27,9 @@ function getCurrencies() {
             var txt = "",
                 txt2 = "";
             for( x in currencies) {
-                txt += "<a class='currencies'>" + currencies[x].name + "</a>";
+                if( currencies[x].name !== "RON") {
+                    txt += "<a class='currencies'>" + currencies[x].name + "</a>";
+                }
                 txt2 += "<option>" + currencies[x].name + "</option>";
             }
             var array = document.getElementsByClassName("dropdown-content");

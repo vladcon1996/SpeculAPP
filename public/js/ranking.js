@@ -12,7 +12,7 @@ window.addEventListener("load",function ranking() {
             var count = 0;
             for( x in users) {
                 count++;
-                txt += "<tr><th></th><td>" + count + 
+                txt += "<tr><td>" + count + 
                         "</td><td>" + users[x].username + 
                         "</td><td>" + users[x].estimatedAmount + "</td></tr>";
             }
