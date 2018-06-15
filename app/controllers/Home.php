@@ -15,7 +15,16 @@ class Home extends Controller {
         $this->currency = $this->model('Currency');
         $this->wallet = $this->model('Wallet');
         $this->transaction = $this->model('Transaction');
-        $this->currencyGenerator = $this->service('CurrencyGeneratorService');
+        try {
+            $this->currencyGenerator = $this->service('CurrencyGeneratorService');
+        } catch(Exception $e) {
+            $this->view('home/error');
+            exit(1);
+        }
+    }
+
+    public function scholarly() {
+        $this->view('home/scholarly');
     }
 
     public function index() {

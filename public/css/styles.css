@@ -279,6 +279,11 @@ button {
     cursor: pointer;
 }
 
+video {
+    width: 100%;
+    height: auto;
+}
+
 @media screen and (max-width: 767px) {
     .row,
     .footer,
@@ -305,6 +310,11 @@ button {
         text-align: center;
         border-radius: 0;
     }
+
+    /* video {
+        width: 618px; 
+        height: 347px;
+    } */
 }
 
 @media print {

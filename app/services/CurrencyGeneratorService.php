@@ -11,8 +11,8 @@ class CurrencyGeneratorService {
     public function __construct() {
         $this->soapClient = new SoapClient( 'http://localhost:8887/currency?wsdl', // nu furnizam niciun WSDL 
         array('location'	=> WS_URL, // adresa serviciului Web
-              'uri'			=> 'http://currencies/', // spatiul de nume corespunzator serviciului Web apelat
-              'trace'		=> 1));
+            'uri'			=> 'http://currencies/', // spatiul de nume corespunzator serviciului Web apelat
+            'trace'		=> 1));
     }
 
     public function setNewCurrency($currencyId, $currency, $intervalBg, $intervalEnd, $time ) {

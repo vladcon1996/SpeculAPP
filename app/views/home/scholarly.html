@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SpeculAPP</title>
+    <link rel="stylesheet" href="../css/scholarly.min.css">
+    <script src="../js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <h1>SpeculAPP</h1>
+    </header>
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          Strugari Stefan
+          &amp;
+          Condurache Vlad
+        </dd>
+        <dt>License</dt>
+        <dd>
+          <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+        </dd>
+      </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+      <h2>Abstract</h2>
+      <p>
+        Acest document are ca scop explicarea procesului de dezvoltare a aplicatie SpeculAPP.
+      </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <p>
+        SpeculAPP este un joc Web care simuleaza operatiuni de specula valutara, scopul 
+        jocului fiind acumularea unei sume cat mai mari de bani facand tranzactii. Vom 
+        incerca sa scoatem in evidenta  structura aplicatiei, modul in care a fost implementat 
+        jocul si tehnologiile web folosite.
+      </p>
+    </section>
+    <section id="structure">
+      <!-- review? -->
+      <h2>Application Structure</h2>
+      <p>
+        SpeculAPP este format din doua componente principale si anume:
+      </p>
+      <section id="webservice">
+        <!-- review? -->
+        <h3>Currency Generator Web Service</h3>
+        <p>
+          Se pune problema generarii unor valori aleatore intr-un anumit interval, la un anumit
+          interval de timp, pentru un anumit numar de monezi virtuale.   
+        </p>
+        <p>
+            Solutia a fost implementarea unui serviciu web care expune un obiect care poate gestiona
+            mai multe fire de executie, fiecare fir de executie ocupandu-se de producerea acelor valori
+            aleatoare. Acest obiect furnizeaza urmatorele functionalitati: 
+        </p>
+        <section id="features">
+          <h4>Features</h4>
+          <section id="create">
+            <h5>Creating a new thread</h4>  
+            <p>
+                Crearea unui nou fir de executie se va face pe baza unor informatii venite de la clientul
+                serviciului, si anume: 
+                <ul>
+                  <li> id-ul, care identifica in mod unic o moneda virtuala</li>
+                  <li> intervalul, in care valorile vor fi generate pentru acea moneda </li>
+                  <li> timpul, la care se va genera alta valoare pentru acea moneda</li>
+                </ul>
+            </p>
+          </section>
+          <section id="allValues">
+            <h5>Getting all the values</h4>
+            <p>
+              Pe baza unui id, clientul poate solicita toate valorile generate pana atunci, pentru moneda cu acel id.
+            </p>
+          </section>
+          <section id="lastValue">
+          <h5>Getting the last value</h4>
+          <p>
+            Tot pe baza unui id, clientul poate solicita ultima valoare generata, pentru moneda cu acel id.
+          </p>
+          </section>
+          <section id="multipleValues">
+            <h5>Getting multiple values</h4>
+            <p>
+              Pe baza unei multimi de id-uri, clientul poate solicita ultimele valori pentru toate monezile
+              corespunzatoare id-urilor respective.
+            </p>
+          </section>
+        </section>
+        <section id="impldetails">
+          <h4>Implementation details</h4>
+          <p>
+            Serviciul este implentat in limbajul Java. Cererile si raspunsurile se desfasoara comform protocolului SOAP.
+            Recurgem la utilizarea API-ului Java JAX-WS pentru a mapa metodele serviciului cu fisierul WSDL.
+            Valorile generate sunt stocate intr-un fisier XML si sunt procesate via DOM.
+          </p>
+        </section>
+      </section>
+      <section id="website">
+        <!-- review? -->
+        <h3>The Web Site</h3>
+        <p>
+          Aceasta componenta a jocului se ocupa de interactiunea utilizatorului web cu aplicatia noastra. Ca orice site web, 
+          aplicatia poate fi reprezenta de doua layer-e : back end si front end; despre care vom discuta in cele ce urmeaza. 
+        </p>
+
+        <section id="back">
+          <h4>Back end</h4>
+          <p>
+            Partea de back end presupune furnizarea urmaroarelor functionalitati:
+            <section id="public features">
+              <h5>Public features</h5>
+              <p>
+                Este vorba despre functionalitatile disponibile fara ca utilizatorul sa fie autentificat.
+                <ul>
+                  <li>
+                    Inregistrarea - presupune primirea datelor de la user si crearea unui nou cont pe baza acestora.
+                  </li>
+                  <li>
+                    Logarea - presupune primirea unor date de la user , cu scopul ca utilizator sa optina permisiunea
+                    de a utiliza alte functionalitati restrictionate de aceasta forma de autentificare. Aceste date
+                    trebuie sa coincida cu datele utilizate la inregistare.
+                  </li>
+                  <li>
+                    Furnizarea monezilor virtuale - presupune transmiterea tuturor informatiilor legate de monezi,
+                    intervalul, timpul, numele si valorile unei anumite monezi virtuale.
+                  </li>
+                  <li>
+                    Furnizarea clasamentului user-ilor in functie de estimarea sumelor in RON din portofoliul acestora,
+                    la un moment dat. 
+                  </li>
+                </ul>
+              </p>
+            </section>
+            <section id="private features">
+                <h5>Private features</h5>
+              Este vorba despre functionalitatile disponibile doar in cazul in care utilizatorul este autentificat.
+              <ul>
+                <li>
+                  Efectuarea unei tranzactii - utilizatorul poate schimba o anumita suma din una din monezile virtuale pe
+                  care le detine, obitinand o suma echivalenta din alta moneda virtuala.
+                </li>
+                <li>
+                  Furnizarea informatiilor despre portofelul user-ului - toate monezile detinute si suma pentru fiecare moneda.
+                </li>
+                <li>
+                  Furnizarea informatiilor despre istoricul tranzactiilor - toate tranzactiile facute de user.
+                </li>
+                <li>
+                  Crearea unei noi monezi virtuale - adminul poate introduce toate informatiile necesare pentru a pune in joc
+                  o noua moneda virtuala.
+                </li>
+              </ul>
+            </section>
+            <section id="impldetails2">
+              <h5>Implementation Details</h5>
+              <p>
+                Partea de back end este implementata in limbajul PHP. Din punct de vedere arhitectural, aplicatia respecta
+                design pattern-ul MVC, punand la dispozitie view-uri, modele, controller-e, dar si obiecte ca DTO-uri, obiecte
+                care faciliteaza tranmitera obiectelor serializate , si servicii ca Serviciul de generare a valorilor monezilor
+                virtuale, serviciu prezentat in sectiunea <a href="#webservice">Currency Generator Web Service</a>. Datele sunt
+                stocate intr-o baza de date relationala MySQL. Utilizam ORM-ul celor de Laravel, <a href="https://laravel.com/docs/5.6/eloquent">Eloquent</a>, pentru a simplifica
+                procesul de interactionare cu baza de date.  
+              </p>
+            </section>
+          </p>
+        </section>
+        <section id="front">
+          <h4>Front End</h4>
+          <p>
+            In Front End am implementat o interfata pentru ca utilizator sa poate interactiona cu toate functionalizatile precizate
+            in sectiunea <a href="#back">Back End</a>.
+            <section id="impldetails3">
+              <h5>Implementation Details</h5>
+              <p>
+                Partea de front end este implementata prin HTML, CSS si JavaScript. Anumite parti de HTML sunt actualizate dinamic
+                si aproape toate cererile catre server sunt facute in mod asicron. Acest lucru a fost posibil datorita utilizarii suitei
+                de tehnologii AJAX, cu precadere unealta <code>XMLHttpRequest</code>. Utilizam un API de la <a role="doc-biblioref" href="https://canvasjs.com/javascript-charts/">CanvasJS</a>, care pune la dispozitie
+                un chart, pe care il vom utiliza pentru a pune in evidenta toate valorile generate pentru o anumita moneda virtuala.
+              </p>
+            </section>
+          </p>
+        </section>
+      </section>
+  </body>
+</html>
